@@ -1,3 +1,6 @@
 .idea/
 *.pyc
 .gitignore~
+*~
+util_code
+*.mp3
