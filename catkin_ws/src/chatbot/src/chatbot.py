@@ -3,11 +3,12 @@
 from gtts import gTTS
 import os
 from threading import Thread
+import rospy
 
 from emotion_recognition import EmotionRecognition
 from context_recognition import ContextRecognition
 from speech_to_text import SpeechRecognition
-from FaceRecognizer import FaceRecognizer
+
 
 input_sentence = ""
 current_emotion = ""

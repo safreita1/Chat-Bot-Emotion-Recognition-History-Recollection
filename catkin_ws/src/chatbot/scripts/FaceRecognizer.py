@@ -1,6 +1,7 @@
 import sys, cv2, csv, os, numpy
 from PIL import Image
 from scipy.misc import imresize
+from chatbot.srv import *
 
 
 
@@ -10,17 +11,15 @@ class FaceRecognizer:
         self.train_csv = "face_data.csv"  # sys.argv[1]
         self.cascade = "haar_cascade/haarcascade_frontalface_default.xml"
         self.name_csv = "name_data.csv"# sys.argv[2]
-        self.deviceID = 0  # sys.argv[3]
         self.build_imagecsv()
         self.images, self.labels = self.read_imagecsv()
         self.size = self.images[0].shape
         self.names = self.read_namecsv()
-        #print self.names[43]
         self.faceCascade = cv2.CascadeClassifier(self.cascade)
         self.recognizer = cv2.createFisherFaceRecognizer(threshold=800)
         self.recognizer.train(self.images, self.labels)
-        self.open()
         self.maxlabel = max(self.labels)
+        self.facereq_server()
 
     def build_imagecsv(self):
         # Builds the face_data.csv from the att_faces relative directory
@@ -90,13 +89,16 @@ class FaceRecognizer:
         return names
 
 
-    def retrain(self, name):
+    def retrain(self, req):
         # Assume one new face at a time
         # Capture 10 faces from 10 frames, add them to the database, and retrain
        # print "adding new face"
-        self.maxlabel += 1
+
         #print self.maxlabel
         facelist = []
+        name = req.name
+        self.vcap = cv2.VideoCapture(int(req.devid))
+
         c = 0
         while True:
             ret, frame = self.vcap.read()
@@ -120,8 +122,11 @@ class FaceRecognizer:
             c = c + 1
             if c > 10:
                 break
+        self.vcap.release()
+        cv2.destroyAllWindows()
         if len(facelist)> 0:
-
+            self.maxlabel += 1
+            print "Adding: " + name
             path = "att_faces/s" + str(self.maxlabel)
             os.mkdir(path)
             for i in range(1, len(facelist)):
@@ -129,18 +134,14 @@ class FaceRecognizer:
             self.images, self.labels = self.read_imagecsv()
             self.update_namecsv(self.maxlabel, name)
             self.recognizer.train(self.images, self.labels)
+            return FaceRetrainResponse(self.maxlabel)
         else:
-            print "Failed to find face"
+            print "Failed to add: " + name
+            return FaceRetrainResponse(-1)
 
-    def exit(self):
-        self.vcap.release()
-        cv2.destroyAllWindows()
-
-    def open(self):
-        self.vcap = cv2.VideoCapture(int(self.deviceID))
-
-    def RecognizeFace(self):
+    def RecognizeFace(self, req):
         reclist = []
+        self.vcap = cv2.VideoCapture(int(req.devid))
         c = 0
         while True:
             ret, frame = self.vcap.read()
@@ -157,20 +158,29 @@ class FaceRecognizer:
                 face = cv2.resize(face, (self.size[1], self.size[0]), 1.0, 1.0)
                 #cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
                 nbr_predicted, conf = self.recognizer.predict(face)
-                return nbr_predicted
+                break
             #cv2.imshow('Video', frame)
             c = c + 1
             if cv2.waitKey(1) & 0xFF == ord('q') or c > 10:
                 # print c
                 break
-        for i in range(0, len(reclist)):
-            if reclist[i] == -1:
-                reclist[i] = None
-                break
-        return None
+        self.vcap.release()
+        cv2.destroyAllWindows()
+        if nbr_predicted < 0:
+            name = ""
+        else:
+            name = self.names[nbr_predicted]
+
+        print "Returning: %d %s"%(nbr_predicted, name)
+        return FaceRecognizeResponse(nbr_predicted, name)
+    def facereq_server(self):
+        rospy.init_node('facereq_server')
+        s1 = rospy.Service('facereq', FaceRecognize, self.RecognizeFace)
+        s2 = rospy.Sercvice('facetrain', FaceTrain, self.retrain)
+        print "Facereq server ready"
+        rospy.spin()
 
 
 if __name__ == "__main__":
     facerec = FaceRecognizer()
-    print facerec.RecognizeFace()
-    facerec.retrain("ben")
+

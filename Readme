@@ -1,0 +1,24 @@
+The source files for the project are located in catkin_ws/src/chatbot
+
+The package name is chatbot
+
+To initialize:
+Ensure roscore is running
+source catkin_ws/devel/setup.py
+cd catkin_ws
+catkin_make install
+
+
+Every function call to a module will be replaced with a busyblock followed by a service call. 
+
+If modules share resources, they are expected to clean up after themselves.
+
+Each module initializes and then spins until quit. They need to be active to handle service requests.
+
+Every new dependency must be updated in both chatbot/CMakeLists.txt and chatbot/package.xml. 
+Every new message or service must included in chatbot/CMakeLists.txt 
+
+Service files must be located in chatbot/srv
+Message files must be located in chatbot/msg
+Extra scripts must be located in chatbot/scripts
+

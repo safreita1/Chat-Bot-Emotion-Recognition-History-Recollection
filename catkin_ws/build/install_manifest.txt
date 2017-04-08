@@ -1,0 +1,10 @@
+/media/sf_GitHub/Perception_Robotics/catkin_ws/install/_setup_util.py
+/media/sf_GitHub/Perception_Robotics/catkin_ws/install/env.sh
+/media/sf_GitHub/Perception_Robotics/catkin_ws/install/setup.bash
+/media/sf_GitHub/Perception_Robotics/catkin_ws/install/setup.sh
+/media/sf_GitHub/Perception_Robotics/catkin_ws/install/setup.zsh
+/media/sf_GitHub/Perception_Robotics/catkin_ws/install/.rosinstall
+/media/sf_GitHub/Perception_Robotics/catkin_ws/install/lib/pkgconfig/chatbot.pc
+/media/sf_GitHub/Perception_Robotics/catkin_ws/install/share/chatbot/cmake/chatbotConfig.cmake
+/media/sf_GitHub/Perception_Robotics/catkin_ws/install/share/chatbot/cmake/chatbotConfig-version.cmake
+/media/sf_GitHub/Perception_Robotics/catkin_ws/install/share/chatbot/package.xml

@@ -1,0 +1,2 @@
+chatbot
+-DCATKIN_DEVEL_PREFIX=/media/sf_GitHub/Perception_Robotics/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/media/sf_GitHub/Perception_Robotics/catkin_ws/install -G Unix Makefiles
