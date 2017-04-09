@@ -54,7 +54,9 @@ find_package(catkin REQUIRED COMPONENTS
 add_service_files(
    FILES
    FaceRecognize.srv
-   FaceTrain.srv
+   FaceTrain.srvz
+   Context.srv
+   EmotionRecognize.srv
 )
 
 ## Generate actions in the 'action' folder
@@ -102,7 +104,7 @@ add_service_files(
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES chatbot
-#  CATKIN_DEPENDS rospy std_msgs
+#  CATKIN_DEPENDS rospy std_msgs message_runtime
 #  DEPENDS system_lib
 )
 

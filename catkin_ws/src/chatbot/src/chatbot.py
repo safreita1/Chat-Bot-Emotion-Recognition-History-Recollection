@@ -42,24 +42,24 @@ def history_recollection():
 #Enter a Mircosoft Speech token into the SpeechRecognition constructor
 speech = SpeechRecognition("1a413224eeff42539b348bff8c1925c9")
 
-context = ContextRecognition()
-context.load_corpus("corpus/")
-context.load_model()
+#context = ContextRecognition()
+#context.load_corpus("corpus/")
+#context.load_model()
 
-emotion = EmotionRecognition()
-emotion.start()
+#emotion = EmotionRecognition()
+#emotion.start()
 
 #The chatbot will start listening to the user after they say "computer"
 #The bot will then read your emotion via webcam
 while input_sentence != "computer":
-    thread = Thread(target=emotion.run, args=())
-    thread.start()
+    #thread = Thread(target=emotion.run, args=())
+    #thread.start()
 
     input_sentence = speech.recognize_speech()
     print "You said: ", input_sentence
 
-    thread.join()
-    meeting_emotion = emotion.get_emotion()
+    #thread.join()
+    #meeting_emotion = emotion.get_emotion()
     print "Emotion read: ", meeting_emotion
 
 #Make a call to see whether or not the user is recognized
@@ -93,8 +93,8 @@ while input_sentence != "goodbye computer":
     input_sentence = speech.recognize_speech()
 
 #Run the emotion check again to see how the user feels after talking
-emotion.run()
-leaving_emotion = emotion.get_emotion()
+#emotion.run()
+#leaving_emotion = emotion.get_emotion()
 print "Leaving emotion: ", leaving_emotion
 print "Name: ", name
 

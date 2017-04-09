@@ -13,9 +13,13 @@ emotion_queue = deque(maxlen=10)
 run_queue = deque()
 longterm_emotion_values = {'Angry': 0.0, 'Disgust': 0.0, 'Fear': 0.0, 'Happy': 0.0, 'Sad': 0.0, 'Surprise': 0.0, 'Neutral': 0.0}
 
+emotion = EmotionRecognition()
 
 class EmotionRecognition:
     model = None
+    def __init__(self):
+        self.start()
+        self.emotionreq_server()
 
     def smooth_emotions(self, prediction):
         emotions = ["Angry", "Disgust", "Fear", "Happy", "Sad", "Surprise", "Neutral"]
@@ -92,9 +96,9 @@ class EmotionRecognition:
 
         self.model.load('current_models/model_resnet_emotion-42000')
 
-    def run(self):
+    def run(self, devid=0):
         face_cascade = cv2.CascadeClassifier('haar_cascade/haarcascade_frontalface_default.xml')
-        cap = cv2.VideoCapture(0)
+        cap = cv2.VideoCapture(devid)
 
         t_end = time.time() + 6
         #Run for the time specified
@@ -122,3 +126,14 @@ class EmotionRecognition:
         average_emotion = max(longterm_emotion_values.iteritems(), key=operator.itemgetter(1))[0]
 
         return average_emotion
+    def get_avg_emotion(self, req):
+        self.run(int(req.devid))
+        return EmotionRecognizeResponse(get_emotion())
+    def emotionreq_server(self):
+        rospy.init_node('emotionreq_server')
+        s1 = rospy.Service('emotionreq', EmotionRecognize, self.get_avg_emotion)
+        print "Emotionreq server ready"
+        rospy.spin()
+
+
+

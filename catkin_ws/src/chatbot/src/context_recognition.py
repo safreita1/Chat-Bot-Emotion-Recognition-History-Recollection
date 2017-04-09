@@ -6,9 +6,6 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from nltk.stem.porter import PorterStemmer
 from sklearn.metrics.pairwise import linear_kernel
 
-stemmer = PorterStemmer()
-token_dict = {}
-
 
 def preprocess_input(input_sentence):
     processed_sentence = input_sentence.lower()
@@ -40,6 +37,9 @@ class ContextRecognition:
 
     def __init__(self):
         self.tf_idf = TfidfVectorizer(tokenizer=tokenize, stop_words='english')
+        self.load_corpus("corpus/")
+        self.load_model()
+        self.context_server()
 
     def load_model(self):
         self.tf_idf = pickle.load(open(self.load_file, 'rb'))
@@ -71,7 +71,8 @@ class ContextRecognition:
 
         return
 
-    def compute_document_similarity(self, input_sentence):
+    def compute_document_similarity(self, req):
+        input_sentence = req.input
         best_match = 'No response is available to your statement.'
         correlation = 0
 
@@ -87,4 +88,14 @@ class ContextRecognition:
             best_match = token_dict[related_docs_indices[0]]
             correlation = related_doc_scores[0]
 
-        return best_match, correlation
+        return ContextResponse(best_match, correlation)
+    def context_server(self):
+        rospy.init_node('context_server')
+        s1 = rospy.Service('context', Context, self.compute_document_similarity)
+        print "Context server ready"
+        rospy.spin()
+
+stemmer = PorterStemmer()
+token_dict = {}
+context = ContextRecognition()
+
