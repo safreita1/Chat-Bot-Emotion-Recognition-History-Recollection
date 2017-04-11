@@ -6,8 +6,9 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from nltk.stem.porter import PorterStemmer
 from sklearn.metrics.pairwise import linear_kernel
 import rospy
-import chatbot
 
+import r_chatbot
+from r_chatbot.srv import *
 
 def preprocess_input(input_sentence):
     processed_sentence = input_sentence.lower()
@@ -40,7 +41,7 @@ class ContextRecognition:
     def __init__(self):
         self.tf_idf = TfidfVectorizer(tokenizer=tokenize, stop_words='english')
         self.load_corpus("corpus/")
-        self.load_model()
+        #self.load_model()
         self.context_server()
 
     def load_model(self):
