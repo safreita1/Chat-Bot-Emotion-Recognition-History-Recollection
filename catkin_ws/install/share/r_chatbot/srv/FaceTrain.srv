@@ -1,0 +1,8 @@
+# Retrain with passed name
+
+string name
+int32 devid
+
+---
+
+int32 id

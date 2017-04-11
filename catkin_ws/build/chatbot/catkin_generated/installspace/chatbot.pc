@@ -1,8 +1,0 @@
-prefix=/media/sf_GitHub/Perception_Robotics/catkin_ws/install
-
-Name: chatbot
-Description: Description of chatbot
-Version: 0.0.0
-Cflags: 
-Libs: -L/media/sf_GitHub/Perception_Robotics/catkin_ws/install/lib 
-Requires: 

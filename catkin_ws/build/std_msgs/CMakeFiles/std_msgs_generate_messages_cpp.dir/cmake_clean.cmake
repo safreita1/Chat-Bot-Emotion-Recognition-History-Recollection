@@ -1,0 +1,40 @@
+FILE(REMOVE_RECURSE
+  "CMakeFiles/std_msgs_generate_messages_cpp"
+  "/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/std_msgs/Bool.h"
+  "/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/std_msgs/Float32MultiArray.h"
+  "/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/std_msgs/Header.h"
+  "/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/std_msgs/UInt16MultiArray.h"
+  "/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/std_msgs/UInt8.h"
+  "/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/std_msgs/Float64.h"
+  "/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/std_msgs/UInt8MultiArray.h"
+  "/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/std_msgs/Int8MultiArray.h"
+  "/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/std_msgs/Int32.h"
+  "/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/std_msgs/Int64.h"
+  "/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/std_msgs/Int32MultiArray.h"
+  "/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/std_msgs/ColorRGBA.h"
+  "/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/std_msgs/Int64MultiArray.h"
+  "/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/std_msgs/String.h"
+  "/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/std_msgs/Time.h"
+  "/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/std_msgs/UInt32MultiArray.h"
+  "/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/std_msgs/Float32.h"
+  "/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/std_msgs/Int16MultiArray.h"
+  "/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/std_msgs/Float64MultiArray.h"
+  "/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/std_msgs/Duration.h"
+  "/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/std_msgs/UInt32.h"
+  "/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/std_msgs/UInt16.h"
+  "/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/std_msgs/Int8.h"
+  "/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/std_msgs/MultiArrayDimension.h"
+  "/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/std_msgs/ByteMultiArray.h"
+  "/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/std_msgs/UInt64MultiArray.h"
+  "/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/std_msgs/Int16.h"
+  "/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/std_msgs/Empty.h"
+  "/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/std_msgs/MultiArrayLayout.h"
+  "/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/std_msgs/UInt64.h"
+  "/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/std_msgs/Byte.h"
+  "/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/std_msgs/Char.h"
+)
+
+# Per-language clean rules from dependency scanning.
+FOREACH(lang)
+  INCLUDE(CMakeFiles/std_msgs_generate_messages_cpp.dir/cmake_clean_${lang}.cmake OPTIONAL)
+ENDFOREACH(lang)

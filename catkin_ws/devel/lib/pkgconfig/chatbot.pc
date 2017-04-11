@@ -3,6 +3,6 @@ prefix=/media/sf_GitHub/Perception_Robotics/catkin_ws/devel
 Name: chatbot
 Description: Description of chatbot
 Version: 0.0.0
-Cflags: 
-Libs: -L/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib 
-Requires: 
+Cflags: -I/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include
+Libs: -L/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib -lchatbot
+Requires: rospy std_msgs message_runtime

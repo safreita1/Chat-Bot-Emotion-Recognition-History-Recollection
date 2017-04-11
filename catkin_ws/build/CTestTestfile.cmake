@@ -5,4 +5,5 @@
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.
 SUBDIRS(gtest)
-SUBDIRS(chatbot)
+SUBDIRS(std_msgs)
+SUBDIRS(r_chatbot)

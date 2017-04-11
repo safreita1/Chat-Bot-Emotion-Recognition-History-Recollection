@@ -1,0 +1,8 @@
+prefix=/media/sf_GitHub/Perception_Robotics/catkin_ws/devel
+
+Name: r_chatbot
+Description: Description of r_chatbot
+Version: 0.0.0
+Cflags: -I/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include
+Libs: -L/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib -lchatbot
+Requires: rospy std_msgs message_runtime

@@ -1,0 +1,8 @@
+prefix=/media/sf_GitHub/Perception_Robotics/catkin_ws/install
+
+Name: std_msgs
+Description: Description of std_msgs
+Version: 0.5.11
+Cflags: -I/media/sf_GitHub/Perception_Robotics/catkin_ws/install/include
+Libs: -L/media/sf_GitHub/Perception_Robotics/catkin_ws/install/lib 
+Requires: message_runtime

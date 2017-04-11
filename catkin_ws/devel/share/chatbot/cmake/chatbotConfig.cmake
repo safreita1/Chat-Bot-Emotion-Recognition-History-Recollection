@@ -67,7 +67,7 @@ set(chatbot_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("TRUE" STREQUAL "TRUE")
-  set(chatbot_SOURCE_PREFIX /media/sf_GitHub/Perception_Robotics/catkin_ws/src/chatbot)
+  set(chatbot_SOURCE_PREFIX /media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot)
   set(chatbot_DEVEL_PREFIX /media/sf_GitHub/Perception_Robotics/catkin_ws/devel)
   set(chatbot_INSTALL_PREFIX "")
   set(chatbot_PREFIX ${chatbot_DEVEL_PREFIX})
@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(chatbot_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT " " STREQUAL " ")
+if(NOT "/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include " STREQUAL " ")
   set(chatbot_INCLUDE_DIRS "")
-  set(_include_dirs "")
+  set(_include_dirs "/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include")
   foreach(idir ${_include_dirs})
     if(IS_ABSOLUTE ${idir} AND IS_DIRECTORY ${idir})
       set(include ${idir})
@@ -103,13 +103,13 @@ if(NOT " " STREQUAL " ")
         message(FATAL_ERROR "Project 'chatbot' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  Ask the maintainer 'ben <ben@todo.todo>' to fix it.")
       endif()
     else()
-      message(FATAL_ERROR "Project 'chatbot' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/media/sf_GitHub/Perception_Robotics/catkin_ws/src/chatbot/${idir}'.  Ask the maintainer 'ben <ben@todo.todo>' to fix it.")
+      message(FATAL_ERROR "Project 'chatbot' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/${idir}'.  Ask the maintainer 'ben <ben@todo.todo>' to fix it.")
     endif()
     _list_append_unique(chatbot_INCLUDE_DIRS ${include})
   endforeach()
 endif()
 
-set(libraries "")
+set(libraries "chatbot")
 foreach(library ${libraries})
   # keep build configuration keywords, target names and absolute libraries as-is
   if("${library}" MATCHES "^(debug|optimized|general)$")
@@ -122,7 +122,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib;/home/ben/catkin_ws/install/lib;/home/ben/catkin_ws/devel/lib;/opt/ros/indigo/lib)
+    foreach(path /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib;/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib;/opt/ros/indigo/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
@@ -145,7 +145,7 @@ foreach(library ${libraries})
   endif()
 endforeach()
 
-set(chatbot_EXPORTED_TARGETS "")
+set(chatbot_EXPORTED_TARGETS "chatbot_generate_messages_cpp;chatbot_generate_messages_lisp;chatbot_generate_messages_py")
 # create dummy targets for exported code generation targets to make life of users easier
 foreach(t ${chatbot_EXPORTED_TARGETS})
   if(NOT TARGET ${t})
@@ -153,7 +153,7 @@ foreach(t ${chatbot_EXPORTED_TARGETS})
   endif()
 endforeach()
 
-set(depends "")
+set(depends "rospy;std_msgs;message_runtime")
 foreach(depend ${depends})
   string(REPLACE " " ";" depend_list ${depend})
   # the package name of the dependency must be kept in a unique variable so that it is not overwritten in recursive calls
@@ -182,7 +182,7 @@ foreach(depend ${depends})
   list(APPEND chatbot_EXPORTED_TARGETS ${${chatbot_dep}_EXPORTED_TARGETS})
 endforeach()
 
-set(pkg_cfg_extras "")
+set(pkg_cfg_extras "chatbot-msg-extras.cmake")
 foreach(extra ${pkg_cfg_extras})
   if(NOT IS_ABSOLUTE ${extra})
     set(extra ${chatbot_DIR}/${extra})

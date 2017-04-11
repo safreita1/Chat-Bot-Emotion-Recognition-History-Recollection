@@ -1,0 +1,8 @@
+# 
+
+int32 devid
+
+---
+
+int32 id
+string name
