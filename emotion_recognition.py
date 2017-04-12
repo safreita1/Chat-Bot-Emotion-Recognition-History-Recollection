@@ -5,6 +5,7 @@ import time
 from tflearn.data_preprocessing import ImagePreprocessing
 from collections import deque
 import operator
+from PIL import Image
 import sys
 
 n=5
@@ -16,6 +17,10 @@ longterm_emotion_values = {'Angry': 0.0, 'Disgust': 0.0, 'Fear': 0.0, 'Happy': 0
 
 class EmotionRecognition:
     model = None
+    user_interface = None
+
+    def __init__(self, user_interface):
+        self.user_interface = user_interface
 
     def smooth_emotions(self, prediction):
         emotions = ["Angry", "Disgust", "Fear", "Happy", "Sad", "Surprise", "Neutral"]
@@ -55,6 +60,8 @@ class EmotionRecognition:
         #font = cv2.FONT_HERSHEY_SIMPLEX
         #cv2.putText(img, "Emotion: " + emotion, (50, 450), font, 1, (255, 255, 255), 2, cv2.CV_AA)
         #cv2.imshow('img', img)
+        self.user_interface.stream_webcam(img)
+        self.user_interface.render()
 
 
     def start(self):
