@@ -1,13 +1,19 @@
-The source files for the project are located in catkin_ws/src/chatbot
+The source files for the project are located in catkin_ws/src/r_chatbot
 
-The package name is chatbot
+The package name is r_chatbot
+Dependencies(On top of all of the stuff for normal chatbot):
+ROS Indigo (http://wiki.ros.org/indigo/Installation/Ubuntu)
+rospy 
+( https://github.com/ros/ros_comm
+run from ros_comm directory: sudo python clients/rospy/setup.py)
 
 To initialize:
 Ensure roscore is running
-source catkin_ws/devel/setup.py
 cd catkin_ws
 catkin_make install
+source devel/setup.bash
 
+NOTE: You must set the source in every bash instance
 
 Every function call to a module will be replaced with a busyblock followed by a service call. 
 
