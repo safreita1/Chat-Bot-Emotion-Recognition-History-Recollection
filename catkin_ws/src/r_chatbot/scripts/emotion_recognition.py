@@ -6,17 +6,26 @@ import time
 from tflearn.data_preprocessing import ImagePreprocessing
 from collections import deque
 import operator
+
 import rospy
 import r_chatbot
 from r_chatbot.srv import *
+
+from PIL import Image
+
 import sys
 
 
 class EmotionRecognition:
     model = None
-    def __init__(self):
+
+    user_interface = None
+
+    def __init__(self, user_interface):
+        self.user_interface = user_interface
         self.start()
         self.emotionreq_server()
+
 
     def smooth_emotions(self, prediction):
         emotions = ["Angry", "Disgust", "Fear", "Happy", "Sad", "Surprise", "Neutral"]
@@ -56,6 +65,8 @@ class EmotionRecognition:
         #font = cv2.FONT_HERSHEY_SIMPLEX
         #cv2.putText(img, "Emotion: " + emotion, (50, 450), font, 1, (255, 255, 255), 2, cv2.CV_AA)
         #cv2.imshow('img', img)
+        self.user_interface.stream_webcam(img)
+        self.user_interface.render()
 
 
     def start(self):
