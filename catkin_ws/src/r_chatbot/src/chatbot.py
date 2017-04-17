@@ -4,8 +4,7 @@ from gtts import gTTS
 import os
 from threading import Thread
 import rospy
-import r_chatbot
-
+from r_chatbot.srv import *
 #from emotion_recognition import EmotionRecognition
 #from context_recognition import ContextRecognition
 from speech_to_text import SpeechRecognition
@@ -17,7 +16,7 @@ devid = 0
 def face_recognize_client():
     rospy.wait_for_service('facereq')
     try:
-        service = rospy.ServiceProxy('facereq', r_chatbot.srv.FaceTrain)
+        service = rospy.ServiceProxy('facereq', FaceRecognize)
         resp = service(devid)
         return resp.id, resp.name
     except rospy.ServiceException, e:
@@ -27,7 +26,7 @@ def face_recognize_client():
 def face_retrain_client(name):
     rospy.wait_for_service('facetrain')
     try:
-        service = rospy.ServiceProxy('facetrain', r_chatbot.srv.FaceTrain )
+        service = rospy.ServiceProxy('facetrain', FaceTrain )
         resp = service(name)
         return resp.id
     except rospy.ServiceException, e:
@@ -37,7 +36,7 @@ def face_retrain_client(name):
 def context_client(input):
     rospy.wait_for_service('context')
     try:
-        service = rospy.ServiceProxy('context', r_chatbot.srv.Context)
+        service = rospy.ServiceProxy('context', Context)
         resp = service(input)
         return resp.response, resp.correlation
     except rospy.ServiceException, e:
@@ -47,7 +46,7 @@ def context_client(input):
 def emotion_client():
     rospy.wait_for_service('emotionreq')
     try:
-        service = rospy.ServiceProxy('emotionreq', r_chatbot.srv.EmotionRecognition )
+        service = rospy.ServiceProxy('emotionreq', EmotionRecognition )
         resp = service(devid)
         return resp.emotion
     except rospy.ServiceException, e:
@@ -67,7 +66,7 @@ def history_recollection():
     #user_name = history.names[user_number]
     uid, user_name = face_recognize_client()
 
-    if user_name is None:
+    if uid == -1:
         print "did not recognize user ", user_name
         text_to_speech("I don't think we've met before, what's your name?")
         temp_sentence = speech.recognize_speech()
@@ -83,7 +82,7 @@ def history_recollection():
     return user_name
 
 #Enter a Mircosoft Speech token into the SpeechRecognition constructor
-speech = SpeechRecognition("1a413224eeff42539b348bff8c1925c9")
+#speech = SpeechRecognition("1a413224eeff42539b348bff8c1925c9")
 
 #context = ContextRecognition()
 #context.load_corpus("corpus/")
@@ -110,7 +109,7 @@ while input_sentence != "computer":
 #Make a call to see whether or not the user is recognized
 name = history_recollection()
 
-
+print "name: " + name
 #Based on the emotion read from the webcam, the chatbot will respond differently
 if meeting_emotion is "Happy" or meeting_emotion is "Surprise":
     text_to_speech("You seem like you're in a good mood today. How can I help you?")
