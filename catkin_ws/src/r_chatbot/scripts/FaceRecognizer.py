@@ -144,10 +144,14 @@ class FaceRecognizer:
 
     def RecognizeFace(self, req):
         reclist = []
-        self.vcap = cv2.VideoCapture(int(req.devid))
+        #print " Recognizing face "
+        #print req
+        #print req.devid
+        self.vcap = cv2.VideoCapture(req.devid)
         c = 0
         while True:
             ret, frame = self.vcap.read()
+            #print "parsing frame"
             gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
             faces = self.faceCascade.detectMultiScale(
               gray,
@@ -157,6 +161,7 @@ class FaceRecognizer:
                 flags=cv2.cv.CV_HAAR_SCALE_IMAGE
             )
             for (x, y, w, h) in faces:
+                #print "found face"
                 face = numpy.array(gray[y: y + h, x: x + w])
                 face = cv2.resize(face, (self.size[1], self.size[0]), 1.0, 1.0)
                 #cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
@@ -164,7 +169,7 @@ class FaceRecognizer:
                 break
             #cv2.imshow('Video', frame)
             c = c + 1
-            if cv2.waitKey(1) & 0xFF == ord('q') or c > 10:
+            if cv2.waitKey(20) & 0xFF == ord('q') or c > 10:
                 # print c
                 break
         self.vcap.release()
