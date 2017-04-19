@@ -1,11 +1,10 @@
-import sys, cv2, csv, os, numpy
+import cv2, csv, os, numpy
 from PIL import Image
-from scipy.misc import imresize
 
 
 
 class FaceRecognizer:
-    def __init__(self):
+    def __init__(self, user_interface):
         # Create and load the classifier, capture the images
         self.train_csv = "face_data.csv"  # sys.argv[1]
         self.cascade = "haar_cascade/haarcascade_frontalface_default.xml"
@@ -21,6 +20,7 @@ class FaceRecognizer:
         self.recognizer.train(self.images, self.labels)
         self.open()
         self.maxlabel = max(self.labels)
+        self.user_interface = user_interface
 
     def build_imagecsv(self):
         # Builds the face_data.csv from the att_faces relative directory
@@ -111,8 +111,11 @@ class FaceRecognizer:
             for (x, y, w, h) in faces:
                 face = numpy.array(gray[y: y + h, x: x + w])
                 face = cv2.resize(face, (self.size[1], self.size[0]), 1.0, 1.0)
-                # cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
+                cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
                 nbr_predicted, conf = self.recognizer.predict(face)
+                cv2.imwrite('webstream.png', frame)
+                self.user_interface.stream_webcam("Re-training on user images", None)
+                self.user_interface.render()
                 if nbr_predicted < 0:
                     facelist.append(face)
                     break
@@ -137,7 +140,7 @@ class FaceRecognizer:
         cv2.destroyAllWindows()
 
     def open(self):
-        self.vcap = cv2.VideoCapture(int(self.deviceID))
+        self.vcap = cv2.VideoCapture(0)
 
     def RecognizeFace(self):
         reclist = []
@@ -155,8 +158,11 @@ class FaceRecognizer:
             for (x, y, w, h) in faces:
                 face = numpy.array(gray[y: y + h, x: x + w])
                 face = cv2.resize(face, (self.size[1], self.size[0]), 1.0, 1.0)
-                #cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
+                cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
                 nbr_predicted, conf = self.recognizer.predict(face)
+                cv2.imwrite('webstream.png', frame)
+                self.user_interface.stream_webcam("Testing for user recognition", None)
+                self.user_interface.render()
                 return nbr_predicted
             #cv2.imshow('Video', frame)
             c = c + 1

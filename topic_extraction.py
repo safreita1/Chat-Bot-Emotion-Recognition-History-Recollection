@@ -5,7 +5,6 @@
 # License: BSD 3 clause
 # URL: http://scikit-learn.org/stable/auto_examples/applications/topics_extraction_with_nmf_lda.html
 
-from time import time
 from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
 from sklearn.decomposition import NMF, LatentDirichletAllocation
 import random
@@ -38,65 +37,43 @@ class TopicExtraction:
         self.previous_conversation.append(conversation)
 
     def print_top_words(self, model, feature_names):
-      topics=[]
-      for topic_idx, topic in enumerate(model.components_):
-          #print("Topic #%d:" % topic_idx)
-          top = " ".join([feature_names[i]
+        topics=[]
+        for topic_idx, topic in enumerate(model.components_):
+            top = " ".join([feature_names[i]
                           for i in topic.argsort()[:-self.n_top_words - 1:-1]])
-          topics.append(top)
-      return topics
+            topics.append(top)
+        return topics
 
     def find_topics(self):
-      print("Loading dataset...")
+        print("Loading dataset...")
 
-      random.shuffle(self.previous_conversation)
-      #dataset = load_files('corpus/', shuffle=True, random_state=1)
-      data_samples = self.previous_conversation
-      #print(len(data_samples))
-      #print("done in %0.3fs." % (time() - t0))
-      # Use tf-idf features for NMF.
-      #print("Extracting tf-idf features for NMF...")
-      tfidf_vectorizer = TfidfVectorizer(max_df=1.0, min_df=0.0,
+        random.shuffle(self.previous_conversation)
+        data_samples = self.previous_conversation
+
+        tfidf_vectorizer = TfidfVectorizer(max_df=1.0, min_df=0.0,
                                          max_features=self.n_features,
                                          stop_words='english', encoding='ascii')
-      t0 = time()
-      tfidf = tfidf_vectorizer.fit_transform(data_samples)
-      #print("done in %0.3fs." % (time() - t0))
-
-      # Use tf (raw term count) features for LDA.
-      #print("Extracting tf features for LDA...")
-      tf_vectorizer = CountVectorizer(max_df=1.0, min_df=0.0,
+        tfidf = tfidf_vectorizer.fit_transform(data_samples)
+        tf_vectorizer = CountVectorizer(max_df=1.0, min_df=0.0,
                                       max_features=self.n_features,
                                       stop_words='english', encoding='ascii')
-      t0 = time()
-      tf = tf_vectorizer.fit_transform(data_samples)
-      #print("done in %0.3fs." % (time() - t0))
+        tf = tf_vectorizer.fit_transform(data_samples)
 
-      # Fit the NMF model
-      #print("Fitting the NMF model with tf-idf features, "
-      #      "n_samples=%d and n_features=%d..."
-      #      % (self.n_samples, self.n_features))
-      t0 = time()
-      nmf = NMF(n_components=self.n_topics, random_state=1,
+
+        # Fit the NMF model
+        nmf = NMF(n_components=self.n_topics, random_state=1,
                 alpha=.1, l1_ratio=.5).fit(tfidf)
-      #print("done in %0.3fss." % (time() - t0))
-      tfidf_feature_names = tfidf_vectorizer.get_feature_names()
-      #print_top_words(nmf, tfidf_feature_names, n_top_words)
 
-      #print("Fitting LDA models with tf features, "
-      #      "n_samples=%d and n_features=%d..."
-      #      % (self.n_samples, self.n_features))
-      lda = LatentDirichletAllocation(n_topics=self.n_topics, max_iter=5,
+        tfidf_feature_names = tfidf_vectorizer.get_feature_names()
+
+        lda = LatentDirichletAllocation(n_topics=self.n_topics, max_iter=5,
                                       learning_method='online',
                                       learning_offset=50.,
                                       random_state=0)
-      t0 = time()
-      lda.fit(tf)
-      #print("done in %0.3fs." % (time() - t0))
+        lda.fit(tf)
+        tf_feature_names = tf_vectorizer.get_feature_names()
 
-      tf_feature_names = tf_vectorizer.get_feature_names()
-      #print_top_words(lda, tf_feature_names, n_top_words)
-      return nmf, lda, tfidf_feature_names, tf_feature_names
+        return nmf, lda, tfidf_feature_names, tf_feature_names
 
     def write_history(self, username):
         with open('history/' + username + '_history', "w+") as f:

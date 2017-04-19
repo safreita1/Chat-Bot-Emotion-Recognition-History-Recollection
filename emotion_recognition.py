@@ -57,12 +57,11 @@ class EmotionRecognition:
         prediction = self.model.predict(image_processed)
         emotion = self.smooth_emotions(prediction)
 
+        self.user_interface.stream_webcam("Current User Emotion", emotion)
+        self.user_interface.render()
         #font = cv2.FONT_HERSHEY_SIMPLEX
         #cv2.putText(img, "Emotion: " + emotion, (50, 450), font, 1, (255, 255, 255), 2, cv2.CV_AA)
         #cv2.imshow('img', img)
-        self.user_interface.stream_webcam(img)
-        self.user_interface.render()
-
 
     def start(self):
         # Real-time preprocessing of the image data
@@ -113,6 +112,7 @@ class EmotionRecognition:
                 cv2.rectangle(img, (x, y), (x + w, y + h), (255, 0, 0), 2)
                 roi_gray = gray[y:y + h, x:x + w]
                 roi_color = img[y:y + h, x:x + w]
+                cv2.imwrite('webstream.png', img)
                 self.process_image(roi_gray, img)
             if cv2.waitKey(1) & 0xFF == ord('q'):
                 break

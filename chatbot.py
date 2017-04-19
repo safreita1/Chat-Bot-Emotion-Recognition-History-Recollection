@@ -2,7 +2,6 @@
 
 from gtts import gTTS
 import os
-from threading import Thread
 import pyglet
 # This line must be before the tensorflow initialization or the program crashes
 window = pyglet.window.Window(fullscreen=True)
@@ -10,13 +9,14 @@ window = pyglet.window.Window(fullscreen=True)
 from emotion_recognition import EmotionRecognition
 from context_recognition import ContextRecognition
 from speech_to_text import SpeechRecognition
-from FaceRecognizer import FaceRecognizer
+from face_recognizer import FaceRecognizer
 from user_interface import UserInterface
 from topic_extraction import TopicExtraction
 
 input_sentence = ""
 current_emotion = ""
 top_words = []
+
 
 def text_to_speech(text):
     if text:
@@ -27,7 +27,7 @@ def text_to_speech(text):
 
 # This function determines whether or not the chatbot has talked with the user
 def history_recollection():
-    history = FaceRecognizer()
+    history = FaceRecognizer(user_interface)
     history.build_imagecsv()
     user_number = history.RecognizeFace()
     user_name = history.names[user_number]
@@ -35,11 +35,11 @@ def history_recollection():
     if user_name is None:
         #print "did not recognize user ", user_name
         chatbot_response = "I don't think we've met before, what's your name?"
-        user_interface.update_sprites(chatbot_response, " ".join(("Emotion: ", meeting_emotion)), " ".join(("User: ", "Unknown")), " ".join("Primary Topics: "))
+        user_interface.update_sprites(chatbot_response, " ".join(("Emotion: ", meeting_emotion)), " ".join(("User: ", "Unknown")), "Primary Topics: ")
         user_interface.render()
         text_to_speech(chatbot_response)
         user_name = speech.recognize_speech()
-        user_interface.update_sprites(chatbot_response, " ".join(("Emotion: ", meeting_emotion)), " ".join(("User: ", user_name)), " ".join("Primary Topics: "))
+        user_interface.update_sprites(chatbot_response, " ".join(("Emotion: ", meeting_emotion)), " ".join(("User: ", user_name)), "Primary Topics: ")
         user_interface.render()
         #print "Name entered as: ", user_name
         history.retrain(user_name)
@@ -47,11 +47,11 @@ def history_recollection():
     else:
         #print "recognized user ", user_name
         chatbot_response = "It's good to see you again, " + user_name
-        user_interface.update_sprites(chatbot_response, " ".join(("Emotion: ", meeting_emotion)), " ".join(("User: ", user_name)), " ".join("Primary Topics: "))
+        user_interface.update_sprites(chatbot_response, " ".join(("Emotion: ", meeting_emotion)), " ".join(("User: ", user_name)), "Primary Topics: ")
         user_interface.render()
         text_to_speech(chatbot_response)
 
-
+    history.exit()
     return user_name
 
 # Enter a Mircosoft Speech token into the SpeechRecognition constructor
@@ -72,14 +72,11 @@ while input_sentence != "computer":
     user_interface.update_sprites("Listening...", "Emotion: None", "User: Unknown", "Primary Topics: ")
     user_interface.render()
 
-    # thread = Thread(target=emotion.run, args=())
-    # thread.start()
     emotion.run()
 
     input_sentence = speech.recognize_speech()
     print "You said: ", input_sentence
 
-    #thread.join()
     meeting_emotion = emotion.get_emotion()
     print "Emotion read: ", meeting_emotion
 
@@ -99,10 +96,10 @@ elif meeting_emotion is "Neutral":
 else:
     chatbot_response = "I sense that you may be bothered right now. How can I help?"
 
-user_interface.update_sprites(chatbot_response, " ".join(("Emotion: ", meeting_emotion)), " ".join(("User: ", user_name)), " ".join("Primary Topics: "))
+user_interface.update_sprites(chatbot_response, " ".join(("Emotion: ", meeting_emotion)), " ".join(("User: ", user_name)), "Primary Topics: ")
 user_interface.render()
 text_to_speech(chatbot_response)
-
+user_interface.remove_webcam_label()
 
 # Continously chat with the user until they say "goodbye computer"
 chatbot_response = ""
@@ -114,7 +111,7 @@ while input_sentence != "goodbye computer":
         print "Original input sentence: ", input_sentence
 
         top_words = topic_extract.get_top_topics(input_sentence)
-        input_sentence = " ".join((input_sentence, top_words[0], top_words[1]))
+        #input_sentence = " ".join((input_sentence, top_words[0]))
         print input_sentence
 
         response, correlation = context.compute_document_similarity(input_sentence)
@@ -126,7 +123,10 @@ while input_sentence != "goodbye computer":
         elif correlation == 0 and input_sentence:
             chatbot_response = "I'm sorry, but I couldn't find an appropriate response to your query."
 
-    user_interface.update_sprites(chatbot_response, " ".join(("Emotion: ", "N/A")), " ".join(("User: ", user_name)), " ".join(("Primary Topics: ", top_words[0], ", ", top_words[1])))
+    if len(top_words) > 0:
+        user_interface.update_sprites(chatbot_response, " ".join(("Emotion: ", "N/A")), " ".join(("User: ", user_name)), " ".join(("Primary Topics: ", top_words[0], ", ", top_words[1])))
+    else:
+        user_interface.update_sprites(chatbot_response, " ".join(("Emotion: ", "N/A")), " ".join(("User: ", user_name)), "Primary Topics: ")
     user_interface.render()
     text_to_speech(chatbot_response)
 
@@ -159,10 +159,14 @@ else:
     else:
         chatbot_response = "Bye, " + user_name + ". It was nice talking to you."
 
-user_interface.update_sprites(chatbot_response, " ".join(("Emotion: ", leaving_emotion)), " ".join(("User: ", user_name)), " ".join(("Primary Topics: ", top_words[0], ", ", top_words[1])))
+
+if len(top_words) > 0:
+    user_interface.update_sprites(chatbot_response, " ".join(("Emotion: ", "N/A")), " ".join(("User: ", user_name)), " ".join(("Primary Topics: ", top_words[0], ", ", top_words[1])))
+else:
+    user_interface.update_sprites(chatbot_response, " ".join(("Emotion: ", "N/A")), " ".join(("User: ", user_name)), "Primary Topics: ")
 user_interface.render()
 text_to_speech(chatbot_response)
-topic_extract.write_history(user_name, )
+topic_extract.write_history(user_name)
 
 
 
