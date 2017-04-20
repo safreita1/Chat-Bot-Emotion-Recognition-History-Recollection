@@ -136,9 +136,10 @@ while input_sentence != "goodbye computer":
 
 
 # Run the emotion check again to see how the user feels after talking
+emotion.reset()
 emotion.run()
 leaving_emotion = emotion.get_emotion()
-#print "Leaving emotion: ", leaving_emotion
+print "Leaving emotion: ", leaving_emotion
 #print "Name: ", user_name
 
 
@@ -146,11 +147,11 @@ leaving_emotion = emotion.get_emotion()
 if (meeting_emotion is "Happy" or meeting_emotion is "Surprise") and (leaving_emotion is "Angry" or leaving_emotion is
     "Sad" or leaving_emotion is "Disgust" or leaving_emotion is "Fear"):
 
-    chatbot_response = "It seems like I left you in a worse mood than when you arrived, hopefully I can do a better job next time."
+    chatbot_response = "I apologize, it seems that I left you in a worse mood than before we talked."
 
 # Else if the user came in angry and left happy, respond happy
 elif (meeting_emotion is "Angry" or meeting_emotion is "Sad" or meeting_emotion is "Disgust" or meeting_emotion is "Fear") and (leaving_emotion is "Happy" or leaving_emotion is "Surprise"):
-    chatbot_response = "It seems that you're in a better mood than when you arrived, I'm glad our conversation cheered you up."
+    chatbot_response = "I'm happy, it seems that you're in a better mood than before our talk."
 
 # Otherwise, respond with a standard goodbye
 else:
@@ -161,9 +162,9 @@ else:
 
 
 if len(top_words) > 0:
-    user_interface.update_sprites(chatbot_response, " ".join(("Emotion: ", "N/A")), " ".join(("User: ", user_name)), " ".join(("Primary Topics: ", top_words[0], ", ", top_words[1])))
+    user_interface.update_sprites(chatbot_response, " ".join(("Emotion: ", leaving_emotion)), " ".join(("User: ", user_name)), " ".join(("Primary Topics: ", top_words[0], ", ", top_words[1])))
 else:
-    user_interface.update_sprites(chatbot_response, " ".join(("Emotion: ", "N/A")), " ".join(("User: ", user_name)), "Primary Topics: ")
+    user_interface.update_sprites(chatbot_response, " ".join(("Emotion: ", leaving_emotion)), " ".join(("User: ", user_name)), "Primary Topics: ")
 user_interface.render()
 text_to_speech(chatbot_response)
 topic_extract.write_history(user_name)
