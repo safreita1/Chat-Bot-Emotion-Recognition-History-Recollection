@@ -57,6 +57,9 @@ add_service_files(
    FaceTrain.srv
    Context.srv
    EmotionRecognize.srv
+   WriteHistory.srv
+   GetTopics.srv
+   LoadHistory.srv
 )
 
 ## Generate actions in the 'action' folder

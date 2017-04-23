@@ -119,11 +119,13 @@ class FaceRecognizer:
                 # cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
                 nbr_predicted, conf = self.recognizer.predict(face)
                 if nbr_predicted < 0:
+                    cv2.imwrite('webstream.png', frame)
                     facelist.append(face)
                     break
             # cv2.imshow('Video', frame)
             c = c + 1
             if c > 10:
+                cv2.imwrite('webstream.png', frame)
                 break
         self.vcap.release()
         cv2.destroyAllWindows()
@@ -145,8 +147,6 @@ class FaceRecognizer:
     def RecognizeFace(self, req):
         reclist = []
         #print " Recognizing face "
-        #print req
-        #print req.devid
         self.vcap = cv2.VideoCapture(req.devid)
         c = 0
         while True:
@@ -166,11 +166,13 @@ class FaceRecognizer:
                 face = cv2.resize(face, (self.size[1], self.size[0]), 1.0, 1.0)
                 #cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
                 nbr_predicted, conf = self.recognizer.predict(face)
+                cv2.imwrite('webstream.png', frame)
                 break
             #cv2.imshow('Video', frame)
             c = c + 1
             if cv2.waitKey(20) & 0xFF == ord('q') or c > 10:
                 # print c
+                cv2.imwrite('webstream.png', frame)
                 break
         self.vcap.release()
         cv2.destroyAllWindows()

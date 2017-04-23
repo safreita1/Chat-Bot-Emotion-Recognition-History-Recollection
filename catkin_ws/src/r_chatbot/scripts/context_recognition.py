@@ -7,7 +7,6 @@ from nltk.stem.porter import PorterStemmer
 from sklearn.metrics.pairwise import linear_kernel
 import rospy
 
-import r_chatbot
 from r_chatbot.srv import *
 
 def preprocess_input(input_sentence):

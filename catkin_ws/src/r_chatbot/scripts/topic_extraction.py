@@ -9,7 +9,8 @@ from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
 from sklearn.decomposition import NMF, LatentDirichletAllocation
 import random
 import os
-
+import rospy
+from r_chatbot.srv import *
 
 class TopicExtraction:
 
@@ -22,6 +23,7 @@ class TopicExtraction:
 
     def load_history(self, username):
         check = os.path.isfile('history/' + username + '_history')
+        self.previous_conversation = []
         if check:
             with open('history/' + username + '_history') as f:
                 for line in f:
@@ -80,3 +82,22 @@ class TopicExtraction:
             for line in self.previous_conversation:
                 f.write(line+' ')
         f.close()
+
+    def write_history_service(self, req):
+        self.write_history(req.name)
+        return 1
+
+    def get_topics_service(self, req):
+        return self.get_top_topics(req.input_sentence)
+
+    def load_history_service(self, req):
+        self.load_history(req.username)
+        return 1
+
+    def topic_server(self):
+        rospy.init_node('topic_server')
+        s1 = rospy.Service('get_top_topics', GetTopics, self.get_topics_service)
+        s2 = rospy.Service('write_history', WriteHistory, self.write_history_service)
+        s3 = rospy.Service('load_history', LoadHistory, self.load_history_service)
+        print "topic server ready"
+        rospy.spin()

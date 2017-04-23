@@ -6,22 +6,11 @@ import time
 from tflearn.data_preprocessing import ImagePreprocessing
 from collections import deque
 import operator
-
-
 import rospy
-import r_chatbot
 from r_chatbot.srv import *
 
 from PIL import Image
-
 import sys
-
-
-# Create emotion queue of last 'x' emotions to smooth the output
-emotion_queue = deque(maxlen=10)
-run_queue = deque()
-
-
 class EmotionRecognition:
 
     def __init__(self, user_interface):
@@ -33,15 +22,12 @@ class EmotionRecognition:
         self.start()
         self.emotionreq_server()
 
-
     def smooth_emotions(self, prediction):
         emotions = ["Angry", "Disgust", "Fear", "Happy", "Sad", "Surprise", "Neutral"]
         emotion_values = {'Angry': 0.0, 'Disgust': 0.0, 'Fear': 0.0, 'Happy': 0.0, 'Sad': 0.0, 'Surprise': 0.0, 'Neutral': 0.0}
-
         emotion_probability, emotion_index = max((val, idx) for (idx, val) in enumerate(prediction[0]))
         emotion = emotions[emotion_index]
         #print emotion
-
         #Append the new emotion and if the maxlength is reached pop the oldest value out
         emotion_queue.appendleft((emotion_probability, emotion))
         run_queue.appendleft((emotion_probability, emotion))
@@ -50,10 +36,8 @@ class EmotionRecognition:
         for pair in emotion_queue:
             emotion_values[pair[1]] += pair[0]
             self.longterm_emotion_values[pair[1]] += pair[0]
-
-        #Select the current emotion based on the one that has the highest value
+            #Select the current emotion based on the one that has the highest value
         average_emotion = max(emotion_values.iteritems(), key=operator.itemgetter(1))[0]
-
         return average_emotion
 
     def process_image(self, roi_gray, img):
@@ -65,12 +49,10 @@ class EmotionRecognition:
         image_processed = image_processed.reshape([-1, 48, 48, 1])
 
         #np.savetxt('test_image.csv', image_processed, delimiter=',')
-
         prediction = self.model.predict(image_processed)
         emotion = self.smooth_emotions(prediction)
 
-        self.user_interface.stream_webcam("Current User Emotion", emotion)
-        self.user_interface.render()
+        
         #font = cv2.FONT_HERSHEY_SIMPLEX
         #cv2.putText(img, "Emotion: " + emotion, (50, 450), font, 1, (255, 255, 255), 2, cv2.CV_AA)
         #cv2.imshow('img', img)
@@ -97,7 +79,6 @@ class EmotionRecognition:
         net = tflearn.batch_normalization(net)
         net = tflearn.activation(net, 'relu')
         net = tflearn.global_avg_pool(net)
-
         # Regression
         net = tflearn.fully_connected(net, 7, activation='softmax')
         mom = tflearn.Momentum(learning_rate=0.1, lr_decay=0.0001, decay_step=32000, staircase=True, momentum=0.9)
@@ -116,6 +97,7 @@ class EmotionRecognition:
 
         t_end = time.time() + 6
         #Run for the time specified
+        face = False
         while time.time() < t_end:
             ret, img = cap.read()
             gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -125,7 +107,11 @@ class EmotionRecognition:
                 roi_gray = gray[y:y + h, x:x + w]
                 roi_color = img[y:y + h, x:x + w]
                 cv2.imwrite('webstream.png', img)
+                face = True
                 self.process_image(roi_gray, img)
+                break
+            if face = True:
+                break
             if cv2.waitKey(1) & 0xFF == ord('q'):
                 break
 
@@ -155,14 +141,16 @@ class EmotionRecognition:
         return average_emotion
     def get_avg_emotion(self, req):
         self.run(int(req.devid))
-        return self.get_emotion()
+        emotion = self.get_emotion
+        self.reset()
+        return emotion
     def emotionreq_server(self):
         rospy.init_node('emotionreq_server')
         s1 = rospy.Service('emotionreq', r_chatbot.srv.EmotionRecognize, self.get_avg_emotion)
         print "Emotionreq server ready"
         rospy.spin()
-
-
-
+# Create emotion queue of last 'x' emotions to smooth the output
+emotion_queue = deque(maxlen=10)
+run_queue = deque()
 
 emotion = EmotionRecognition()
