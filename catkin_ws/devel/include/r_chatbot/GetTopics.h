@@ -40,7 +40,7 @@ template<>
 struct MD5Sum< ::r_chatbot::GetTopics > {
   static const char* value()
   {
-    return "21d1906049614cff8ad9f05ab6515139";
+    return "879dc9a407babc475af0cd8d1b6e5981";
   }
 
   static const char* value(const ::r_chatbot::GetTopics&) { return value(); }

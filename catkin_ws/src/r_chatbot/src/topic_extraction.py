@@ -11,6 +11,7 @@ import random
 import os
 import rospy
 from r_chatbot.srv import *
+from r_chatbot.msg import StringList
 
 class TopicExtraction:
 
@@ -85,11 +86,16 @@ class TopicExtraction:
         f.close()
 
     def write_history_service(self, req):
-        self.write_history(req.name)
+        self.write_history(req. username)
         return 1
 
     def get_topics_service(self, req):
-        return self.get_top_topics(req.input_sentence)
+        top_words = self.get_top_topics(req.input_sentence)
+        wordlist = [str(top_words[x]) for x in range(len(top_words))]
+        str_list = StringList(wordlist)
+        #str_list.data = wordlist
+        print "top words", str_list
+        return str_list#self.get_top_topics(req.input_sentence)
 
     def load_history_service(self, req):
         self.load_history(req.username)

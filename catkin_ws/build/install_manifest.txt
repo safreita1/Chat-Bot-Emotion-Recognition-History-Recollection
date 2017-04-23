@@ -222,6 +222,7 @@
 /media/sf_GitHub/Perception_Robotics/catkin_ws/install/include/std_msgs/builtin_uint8.h
 /media/sf_GitHub/Perception_Robotics/catkin_ws/install/include/std_msgs/header_deprecated_def.h
 /media/sf_GitHub/Perception_Robotics/catkin_ws/install/include/std_msgs/trait_macros.h
+/media/sf_GitHub/Perception_Robotics/catkin_ws/install/share/r_chatbot/msg/StringList.msg
 /media/sf_GitHub/Perception_Robotics/catkin_ws/install/share/r_chatbot/srv/FaceRecognize.srv
 /media/sf_GitHub/Perception_Robotics/catkin_ws/install/share/r_chatbot/srv/FaceTrain.srv
 /media/sf_GitHub/Perception_Robotics/catkin_ws/install/share/r_chatbot/srv/Context.srv
@@ -248,9 +249,14 @@
 /media/sf_GitHub/Perception_Robotics/catkin_ws/install/include/r_chatbot/LoadHistory.h
 /media/sf_GitHub/Perception_Robotics/catkin_ws/install/include/r_chatbot/LoadHistoryRequest.h
 /media/sf_GitHub/Perception_Robotics/catkin_ws/install/include/r_chatbot/LoadHistoryResponse.h
+/media/sf_GitHub/Perception_Robotics/catkin_ws/install/include/r_chatbot/StringList.h
 /media/sf_GitHub/Perception_Robotics/catkin_ws/install/include/r_chatbot/WriteHistory.h
 /media/sf_GitHub/Perception_Robotics/catkin_ws/install/include/r_chatbot/WriteHistoryRequest.h
 /media/sf_GitHub/Perception_Robotics/catkin_ws/install/include/r_chatbot/WriteHistoryResponse.h
+/media/sf_GitHub/Perception_Robotics/catkin_ws/install/share/common-lisp/ros/r_chatbot/msg/r_chatbot-msg.asd
+/media/sf_GitHub/Perception_Robotics/catkin_ws/install/share/common-lisp/ros/r_chatbot/msg/StringList.lisp
+/media/sf_GitHub/Perception_Robotics/catkin_ws/install/share/common-lisp/ros/r_chatbot/msg/_package.lisp
+/media/sf_GitHub/Perception_Robotics/catkin_ws/install/share/common-lisp/ros/r_chatbot/msg/_package_StringList.lisp
 /media/sf_GitHub/Perception_Robotics/catkin_ws/install/share/common-lisp/ros/r_chatbot/srv/Context.lisp
 /media/sf_GitHub/Perception_Robotics/catkin_ws/install/share/common-lisp/ros/r_chatbot/srv/EmotionRecognize.lisp
 /media/sf_GitHub/Perception_Robotics/catkin_ws/install/share/common-lisp/ros/r_chatbot/srv/FaceRecognize.lisp
@@ -267,6 +273,10 @@
 /media/sf_GitHub/Perception_Robotics/catkin_ws/install/share/common-lisp/ros/r_chatbot/srv/_package_GetTopics.lisp
 /media/sf_GitHub/Perception_Robotics/catkin_ws/install/share/common-lisp/ros/r_chatbot/srv/_package_LoadHistory.lisp
 /media/sf_GitHub/Perception_Robotics/catkin_ws/install/share/common-lisp/ros/r_chatbot/srv/_package_WriteHistory.lisp
+/media/sf_GitHub/Perception_Robotics/catkin_ws/install/lib/python2.7/dist-packages/r_chatbot/msg/_StringList.py
+/media/sf_GitHub/Perception_Robotics/catkin_ws/install/lib/python2.7/dist-packages/r_chatbot/msg/_StringList.pyc
+/media/sf_GitHub/Perception_Robotics/catkin_ws/install/lib/python2.7/dist-packages/r_chatbot/msg/__init__.py
+/media/sf_GitHub/Perception_Robotics/catkin_ws/install/lib/python2.7/dist-packages/r_chatbot/msg/__init__.pyc
 /media/sf_GitHub/Perception_Robotics/catkin_ws/install/lib/python2.7/dist-packages/r_chatbot/srv/_Context.py
 /media/sf_GitHub/Perception_Robotics/catkin_ws/install/lib/python2.7/dist-packages/r_chatbot/srv/_Context.pyc
 /media/sf_GitHub/Perception_Robotics/catkin_ws/install/lib/python2.7/dist-packages/r_chatbot/srv/_EmotionRecognize.py

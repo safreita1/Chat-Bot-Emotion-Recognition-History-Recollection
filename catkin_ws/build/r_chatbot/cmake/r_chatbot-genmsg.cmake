@@ -1,8 +1,8 @@
 # generated from genmsg/cmake/pkg-genmsg.cmake.em
 
-message(STATUS "r_chatbot: 0 messages, 7 services")
+message(STATUS "r_chatbot: 1 messages, 7 services")
 
-set(MSG_I_FLAGS "-Istd_msgs:/media/sf_GitHub/Perception_Robotics/catkin_ws/src/std_msgs/msg")
+set(MSG_I_FLAGS "-Ir_chatbot:/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/msg;-Istd_msgs:/media/sf_GitHub/Perception_Robotics/catkin_ws/src/std_msgs/msg")
 
 # Find all generators
 find_package(gencpp REQUIRED)
@@ -25,6 +25,11 @@ add_custom_target(_r_chatbot_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "r_chatbot" "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/EmotionRecognize.srv" ""
 )
 
+get_filename_component(_filename "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/msg/StringList.msg" NAME_WE)
+add_custom_target(_r_chatbot_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "r_chatbot" "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/msg/StringList.msg" ""
+)
+
 get_filename_component(_filename "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/LoadHistory.srv" NAME_WE)
 add_custom_target(_r_chatbot_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "r_chatbot" "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/LoadHistory.srv" ""
@@ -37,7 +42,7 @@ add_custom_target(_r_chatbot_generate_messages_check_deps_${_filename}
 
 get_filename_component(_filename "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/GetTopics.srv" NAME_WE)
 add_custom_target(_r_chatbot_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "r_chatbot" "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/GetTopics.srv" ""
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "r_chatbot" "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/GetTopics.srv" "r_chatbot/StringList"
 )
 
 get_filename_component(_filename "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/FaceTrain.srv" NAME_WE)
@@ -56,6 +61,12 @@ add_custom_target(_r_chatbot_generate_messages_check_deps_${_filename}
 
 ### Section generating for lang: gencpp
 ### Generating Messages
+_generate_msg_cpp(r_chatbot
+  "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/msg/StringList.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/r_chatbot
+)
 
 ### Generating Services
 _generate_srv_cpp(r_chatbot
@@ -85,7 +96,7 @@ _generate_srv_cpp(r_chatbot
 _generate_srv_cpp(r_chatbot
   "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/GetTopics.srv"
   "${MSG_I_FLAGS}"
-  ""
+  "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/msg/StringList.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/r_chatbot
 )
 _generate_srv_cpp(r_chatbot
@@ -117,6 +128,8 @@ get_filename_component(_filename "/media/sf_GitHub/Perception_Robotics/catkin_ws
 add_dependencies(r_chatbot_generate_messages_cpp _r_chatbot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/EmotionRecognize.srv" NAME_WE)
 add_dependencies(r_chatbot_generate_messages_cpp _r_chatbot_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/msg/StringList.msg" NAME_WE)
+add_dependencies(r_chatbot_generate_messages_cpp _r_chatbot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/LoadHistory.srv" NAME_WE)
 add_dependencies(r_chatbot_generate_messages_cpp _r_chatbot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/FaceRecognize.srv" NAME_WE)
@@ -137,6 +150,12 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS r_chatbot_generate_messages_cpp)
 
 ### Section generating for lang: genlisp
 ### Generating Messages
+_generate_msg_lisp(r_chatbot
+  "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/msg/StringList.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/r_chatbot
+)
 
 ### Generating Services
 _generate_srv_lisp(r_chatbot
@@ -166,7 +185,7 @@ _generate_srv_lisp(r_chatbot
 _generate_srv_lisp(r_chatbot
   "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/GetTopics.srv"
   "${MSG_I_FLAGS}"
-  ""
+  "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/msg/StringList.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/r_chatbot
 )
 _generate_srv_lisp(r_chatbot
@@ -198,6 +217,8 @@ get_filename_component(_filename "/media/sf_GitHub/Perception_Robotics/catkin_ws
 add_dependencies(r_chatbot_generate_messages_lisp _r_chatbot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/EmotionRecognize.srv" NAME_WE)
 add_dependencies(r_chatbot_generate_messages_lisp _r_chatbot_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/msg/StringList.msg" NAME_WE)
+add_dependencies(r_chatbot_generate_messages_lisp _r_chatbot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/LoadHistory.srv" NAME_WE)
 add_dependencies(r_chatbot_generate_messages_lisp _r_chatbot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/FaceRecognize.srv" NAME_WE)
@@ -218,6 +239,12 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS r_chatbot_generate_messages_lisp)
 
 ### Section generating for lang: genpy
 ### Generating Messages
+_generate_msg_py(r_chatbot
+  "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/msg/StringList.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/r_chatbot
+)
 
 ### Generating Services
 _generate_srv_py(r_chatbot
@@ -247,7 +274,7 @@ _generate_srv_py(r_chatbot
 _generate_srv_py(r_chatbot
   "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/GetTopics.srv"
   "${MSG_I_FLAGS}"
-  ""
+  "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/msg/StringList.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/r_chatbot
 )
 _generate_srv_py(r_chatbot
@@ -278,6 +305,8 @@ add_dependencies(r_chatbot_generate_messages r_chatbot_generate_messages_py)
 get_filename_component(_filename "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/Context.srv" NAME_WE)
 add_dependencies(r_chatbot_generate_messages_py _r_chatbot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/EmotionRecognize.srv" NAME_WE)
+add_dependencies(r_chatbot_generate_messages_py _r_chatbot_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/msg/StringList.msg" NAME_WE)
 add_dependencies(r_chatbot_generate_messages_py _r_chatbot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/LoadHistory.srv" NAME_WE)
 add_dependencies(r_chatbot_generate_messages_py _r_chatbot_generate_messages_check_deps_${_filename})

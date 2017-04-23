@@ -74,6 +74,7 @@ class ContextRecognition:
         return
 
     def compute_document_similarity(self, req):
+        print "working on document similarity"
         input_sentence = req.input
         best_match = 'No response is available to your statement.'
         correlation = 0
@@ -89,7 +90,7 @@ class ContextRecognition:
         if related_doc_scores[0] > 0:
             best_match = token_dict[related_docs_indices[0]]
             correlation = related_doc_scores[0]
-
+        print "done"
         return best_match, correlation
     def context_server(self):
         rospy.init_node('context_server')

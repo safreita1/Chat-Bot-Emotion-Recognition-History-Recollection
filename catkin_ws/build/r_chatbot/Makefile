@@ -234,6 +234,20 @@ _r_chatbot_generate_messages_check_deps_LoadHistory/fast:
 .PHONY : _r_chatbot_generate_messages_check_deps_LoadHistory/fast
 
 # Convenience name for target.
+r_chatbot/CMakeFiles/_r_chatbot_generate_messages_check_deps_StringList.dir/rule:
+	cd /media/sf_GitHub/Perception_Robotics/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 r_chatbot/CMakeFiles/_r_chatbot_generate_messages_check_deps_StringList.dir/rule
+.PHONY : r_chatbot/CMakeFiles/_r_chatbot_generate_messages_check_deps_StringList.dir/rule
+
+# Convenience name for target.
+_r_chatbot_generate_messages_check_deps_StringList: r_chatbot/CMakeFiles/_r_chatbot_generate_messages_check_deps_StringList.dir/rule
+.PHONY : _r_chatbot_generate_messages_check_deps_StringList
+
+# fast build rule for target.
+_r_chatbot_generate_messages_check_deps_StringList/fast:
+	cd /media/sf_GitHub/Perception_Robotics/catkin_ws/build && $(MAKE) -f r_chatbot/CMakeFiles/_r_chatbot_generate_messages_check_deps_StringList.dir/build.make r_chatbot/CMakeFiles/_r_chatbot_generate_messages_check_deps_StringList.dir/build
+.PHONY : _r_chatbot_generate_messages_check_deps_StringList/fast
+
+# Convenience name for target.
 r_chatbot/CMakeFiles/_r_chatbot_generate_messages_check_deps_WriteHistory.dir/rule:
 	cd /media/sf_GitHub/Perception_Robotics/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 r_chatbot/CMakeFiles/_r_chatbot_generate_messages_check_deps_WriteHistory.dir/rule
 .PHONY : r_chatbot/CMakeFiles/_r_chatbot_generate_messages_check_deps_WriteHistory.dir/rule
@@ -357,6 +371,7 @@ help:
 	@echo "... _r_chatbot_generate_messages_check_deps_FaceTrain"
 	@echo "... _r_chatbot_generate_messages_check_deps_GetTopics"
 	@echo "... _r_chatbot_generate_messages_check_deps_LoadHistory"
+	@echo "... _r_chatbot_generate_messages_check_deps_StringList"
 	@echo "... _r_chatbot_generate_messages_check_deps_WriteHistory"
 	@echo "... edit_cache"
 	@echo "... install"

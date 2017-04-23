@@ -45,6 +45,7 @@ CMAKE_BINARY_DIR = /media/sf_GitHub/Perception_Robotics/catkin_ws/build
 # Include the progress variables for this target.
 include r_chatbot/CMakeFiles/r_chatbot_generate_messages_cpp.dir/progress.make
 
+r_chatbot/CMakeFiles/r_chatbot_generate_messages_cpp: /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot/StringList.h
 r_chatbot/CMakeFiles/r_chatbot_generate_messages_cpp: /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot/Context.h
 r_chatbot/CMakeFiles/r_chatbot_generate_messages_cpp: /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot/EmotionRecognize.h
 r_chatbot/CMakeFiles/r_chatbot_generate_messages_cpp: /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot/LoadHistory.h
@@ -53,63 +54,72 @@ r_chatbot/CMakeFiles/r_chatbot_generate_messages_cpp: /media/sf_GitHub/Perceptio
 r_chatbot/CMakeFiles/r_chatbot_generate_messages_cpp: /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot/FaceTrain.h
 r_chatbot/CMakeFiles/r_chatbot_generate_messages_cpp: /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot/WriteHistory.h
 
+/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot/StringList.h: /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py
+/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot/StringList.h: /media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/msg/StringList.msg
+/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot/StringList.h: /opt/ros/indigo/share/gencpp/cmake/../msg.h.template
+	$(CMAKE_COMMAND) -E cmake_progress_report /media/sf_GitHub/Perception_Robotics/catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating C++ code from r_chatbot/StringList.msg"
+	cd /media/sf_GitHub/Perception_Robotics/catkin_ws/build/r_chatbot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/msg/StringList.msg -Ir_chatbot:/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/msg -Istd_msgs:/media/sf_GitHub/Perception_Robotics/catkin_ws/src/std_msgs/msg -p r_chatbot -o /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot -e /opt/ros/indigo/share/gencpp/cmake/..
+
 /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot/Context.h: /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py
 /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot/Context.h: /media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/Context.srv
 /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot/Context.h: /opt/ros/indigo/share/gencpp/cmake/../msg.h.template
 /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot/Context.h: /opt/ros/indigo/share/gencpp/cmake/../srv.h.template
-	$(CMAKE_COMMAND) -E cmake_progress_report /media/sf_GitHub/Perception_Robotics/catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /media/sf_GitHub/Perception_Robotics/catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating C++ code from r_chatbot/Context.srv"
-	cd /media/sf_GitHub/Perception_Robotics/catkin_ws/build/r_chatbot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/Context.srv -Istd_msgs:/media/sf_GitHub/Perception_Robotics/catkin_ws/src/std_msgs/msg -p r_chatbot -o /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot -e /opt/ros/indigo/share/gencpp/cmake/..
+	cd /media/sf_GitHub/Perception_Robotics/catkin_ws/build/r_chatbot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/Context.srv -Ir_chatbot:/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/msg -Istd_msgs:/media/sf_GitHub/Perception_Robotics/catkin_ws/src/std_msgs/msg -p r_chatbot -o /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot -e /opt/ros/indigo/share/gencpp/cmake/..
 
 /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot/EmotionRecognize.h: /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py
 /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot/EmotionRecognize.h: /media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/EmotionRecognize.srv
 /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot/EmotionRecognize.h: /opt/ros/indigo/share/gencpp/cmake/../msg.h.template
 /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot/EmotionRecognize.h: /opt/ros/indigo/share/gencpp/cmake/../srv.h.template
-	$(CMAKE_COMMAND) -E cmake_progress_report /media/sf_GitHub/Perception_Robotics/catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report /media/sf_GitHub/Perception_Robotics/catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating C++ code from r_chatbot/EmotionRecognize.srv"
-	cd /media/sf_GitHub/Perception_Robotics/catkin_ws/build/r_chatbot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/EmotionRecognize.srv -Istd_msgs:/media/sf_GitHub/Perception_Robotics/catkin_ws/src/std_msgs/msg -p r_chatbot -o /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot -e /opt/ros/indigo/share/gencpp/cmake/..
+	cd /media/sf_GitHub/Perception_Robotics/catkin_ws/build/r_chatbot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/EmotionRecognize.srv -Ir_chatbot:/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/msg -Istd_msgs:/media/sf_GitHub/Perception_Robotics/catkin_ws/src/std_msgs/msg -p r_chatbot -o /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot -e /opt/ros/indigo/share/gencpp/cmake/..
 
 /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot/LoadHistory.h: /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py
 /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot/LoadHistory.h: /media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/LoadHistory.srv
 /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot/LoadHistory.h: /opt/ros/indigo/share/gencpp/cmake/../msg.h.template
 /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot/LoadHistory.h: /opt/ros/indigo/share/gencpp/cmake/../srv.h.template
-	$(CMAKE_COMMAND) -E cmake_progress_report /media/sf_GitHub/Perception_Robotics/catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_3)
+	$(CMAKE_COMMAND) -E cmake_progress_report /media/sf_GitHub/Perception_Robotics/catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_4)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating C++ code from r_chatbot/LoadHistory.srv"
-	cd /media/sf_GitHub/Perception_Robotics/catkin_ws/build/r_chatbot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/LoadHistory.srv -Istd_msgs:/media/sf_GitHub/Perception_Robotics/catkin_ws/src/std_msgs/msg -p r_chatbot -o /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot -e /opt/ros/indigo/share/gencpp/cmake/..
+	cd /media/sf_GitHub/Perception_Robotics/catkin_ws/build/r_chatbot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/LoadHistory.srv -Ir_chatbot:/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/msg -Istd_msgs:/media/sf_GitHub/Perception_Robotics/catkin_ws/src/std_msgs/msg -p r_chatbot -o /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot -e /opt/ros/indigo/share/gencpp/cmake/..
 
 /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot/FaceRecognize.h: /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py
 /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot/FaceRecognize.h: /media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/FaceRecognize.srv
 /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot/FaceRecognize.h: /opt/ros/indigo/share/gencpp/cmake/../msg.h.template
 /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot/FaceRecognize.h: /opt/ros/indigo/share/gencpp/cmake/../srv.h.template
-	$(CMAKE_COMMAND) -E cmake_progress_report /media/sf_GitHub/Perception_Robotics/catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_4)
+	$(CMAKE_COMMAND) -E cmake_progress_report /media/sf_GitHub/Perception_Robotics/catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_5)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating C++ code from r_chatbot/FaceRecognize.srv"
-	cd /media/sf_GitHub/Perception_Robotics/catkin_ws/build/r_chatbot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/FaceRecognize.srv -Istd_msgs:/media/sf_GitHub/Perception_Robotics/catkin_ws/src/std_msgs/msg -p r_chatbot -o /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot -e /opt/ros/indigo/share/gencpp/cmake/..
+	cd /media/sf_GitHub/Perception_Robotics/catkin_ws/build/r_chatbot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/FaceRecognize.srv -Ir_chatbot:/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/msg -Istd_msgs:/media/sf_GitHub/Perception_Robotics/catkin_ws/src/std_msgs/msg -p r_chatbot -o /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot -e /opt/ros/indigo/share/gencpp/cmake/..
 
 /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot/GetTopics.h: /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py
 /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot/GetTopics.h: /media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/GetTopics.srv
+/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot/GetTopics.h: /media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/msg/StringList.msg
 /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot/GetTopics.h: /opt/ros/indigo/share/gencpp/cmake/../msg.h.template
 /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot/GetTopics.h: /opt/ros/indigo/share/gencpp/cmake/../srv.h.template
-	$(CMAKE_COMMAND) -E cmake_progress_report /media/sf_GitHub/Perception_Robotics/catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_5)
+	$(CMAKE_COMMAND) -E cmake_progress_report /media/sf_GitHub/Perception_Robotics/catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_6)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating C++ code from r_chatbot/GetTopics.srv"
-	cd /media/sf_GitHub/Perception_Robotics/catkin_ws/build/r_chatbot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/GetTopics.srv -Istd_msgs:/media/sf_GitHub/Perception_Robotics/catkin_ws/src/std_msgs/msg -p r_chatbot -o /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot -e /opt/ros/indigo/share/gencpp/cmake/..
+	cd /media/sf_GitHub/Perception_Robotics/catkin_ws/build/r_chatbot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/GetTopics.srv -Ir_chatbot:/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/msg -Istd_msgs:/media/sf_GitHub/Perception_Robotics/catkin_ws/src/std_msgs/msg -p r_chatbot -o /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot -e /opt/ros/indigo/share/gencpp/cmake/..
 
 /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot/FaceTrain.h: /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py
 /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot/FaceTrain.h: /media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/FaceTrain.srv
 /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot/FaceTrain.h: /opt/ros/indigo/share/gencpp/cmake/../msg.h.template
 /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot/FaceTrain.h: /opt/ros/indigo/share/gencpp/cmake/../srv.h.template
-	$(CMAKE_COMMAND) -E cmake_progress_report /media/sf_GitHub/Perception_Robotics/catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_6)
+	$(CMAKE_COMMAND) -E cmake_progress_report /media/sf_GitHub/Perception_Robotics/catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_7)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating C++ code from r_chatbot/FaceTrain.srv"
-	cd /media/sf_GitHub/Perception_Robotics/catkin_ws/build/r_chatbot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/FaceTrain.srv -Istd_msgs:/media/sf_GitHub/Perception_Robotics/catkin_ws/src/std_msgs/msg -p r_chatbot -o /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot -e /opt/ros/indigo/share/gencpp/cmake/..
+	cd /media/sf_GitHub/Perception_Robotics/catkin_ws/build/r_chatbot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/FaceTrain.srv -Ir_chatbot:/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/msg -Istd_msgs:/media/sf_GitHub/Perception_Robotics/catkin_ws/src/std_msgs/msg -p r_chatbot -o /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot -e /opt/ros/indigo/share/gencpp/cmake/..
 
 /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot/WriteHistory.h: /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py
 /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot/WriteHistory.h: /media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/WriteHistory.srv
 /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot/WriteHistory.h: /opt/ros/indigo/share/gencpp/cmake/../msg.h.template
 /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot/WriteHistory.h: /opt/ros/indigo/share/gencpp/cmake/../srv.h.template
-	$(CMAKE_COMMAND) -E cmake_progress_report /media/sf_GitHub/Perception_Robotics/catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_7)
+	$(CMAKE_COMMAND) -E cmake_progress_report /media/sf_GitHub/Perception_Robotics/catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_8)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating C++ code from r_chatbot/WriteHistory.srv"
-	cd /media/sf_GitHub/Perception_Robotics/catkin_ws/build/r_chatbot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/WriteHistory.srv -Istd_msgs:/media/sf_GitHub/Perception_Robotics/catkin_ws/src/std_msgs/msg -p r_chatbot -o /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot -e /opt/ros/indigo/share/gencpp/cmake/..
+	cd /media/sf_GitHub/Perception_Robotics/catkin_ws/build/r_chatbot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/WriteHistory.srv -Ir_chatbot:/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/msg -Istd_msgs:/media/sf_GitHub/Perception_Robotics/catkin_ws/src/std_msgs/msg -p r_chatbot -o /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot -e /opt/ros/indigo/share/gencpp/cmake/..
 
 r_chatbot_generate_messages_cpp: r_chatbot/CMakeFiles/r_chatbot_generate_messages_cpp
+r_chatbot_generate_messages_cpp: /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot/StringList.h
 r_chatbot_generate_messages_cpp: /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot/Context.h
 r_chatbot_generate_messages_cpp: /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot/EmotionRecognize.h
 r_chatbot_generate_messages_cpp: /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot/LoadHistory.h

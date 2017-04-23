@@ -100,7 +100,7 @@ class FaceRecognizer:
         #print self.maxlabel
         facelist = []
         name = req.name
-        self.vcap = cv2.VideoCapture(0)#int(req.devid))
+        self.vcap = cv2.VideoCapture(int(req.devid))
 
         c = 0
         while True:
@@ -147,7 +147,7 @@ class FaceRecognizer:
     def RecognizeFace(self, req):
         reclist = []
         #print " Recognizing face "
-        self.vcap = cv2.VideoCapture(0)#int(req.devid))
+        self.vcap = cv2.VideoCapture(int(req.devid))
         c = 0
         while True:
             ret, frame = self.vcap.read()

@@ -1,5 +1,6 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/r_chatbot_generate_messages_cpp"
+  "/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot/StringList.h"
   "/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot/Context.h"
   "/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot/EmotionRecognize.h"
   "/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot/LoadHistory.h"

@@ -1,5 +1,6 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/r_chatbot_generate_messages_lisp"
+  "/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/share/common-lisp/ros/r_chatbot/msg/StringList.lisp"
   "/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/share/common-lisp/ros/r_chatbot/srv/Context.lisp"
   "/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/share/common-lisp/ros/r_chatbot/srv/EmotionRecognize.lisp"
   "/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/share/common-lisp/ros/r_chatbot/srv/LoadHistory.lisp"

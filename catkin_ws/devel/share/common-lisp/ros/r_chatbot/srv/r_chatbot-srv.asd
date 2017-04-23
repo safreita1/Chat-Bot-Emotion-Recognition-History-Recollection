@@ -2,7 +2,8 @@
 (cl:in-package :asdf)
 
 (defsystem "r_chatbot-srv"
-  :depends-on (:roslisp-msg-protocol :roslisp-utils )
+  :depends-on (:roslisp-msg-protocol :roslisp-utils :r_chatbot-msg
+)
   :components ((:file "_package")
     (:file "Context" :depends-on ("_package_Context"))
     (:file "_package_Context" :depends-on ("_package"))

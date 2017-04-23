@@ -1,5 +1,6 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/r_chatbot_generate_messages_py"
+  "/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/r_chatbot/msg/_StringList.py"
   "/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/r_chatbot/srv/_Context.py"
   "/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/r_chatbot/srv/_EmotionRecognize.py"
   "/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/r_chatbot/srv/_LoadHistory.py"
@@ -7,6 +8,7 @@ FILE(REMOVE_RECURSE
   "/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/r_chatbot/srv/_GetTopics.py"
   "/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/r_chatbot/srv/_FaceTrain.py"
   "/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/r_chatbot/srv/_WriteHistory.py"
+  "/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/r_chatbot/msg/__init__.py"
   "/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/r_chatbot/srv/__init__.py"
 )
 

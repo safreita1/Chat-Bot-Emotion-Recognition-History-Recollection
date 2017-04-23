@@ -15,6 +15,7 @@
 #include <ros/builtin_message_traits.h>
 #include <ros/message_operations.h>
 
+#include <r_chatbot/StringList.h>
 
 namespace r_chatbot
 {
@@ -33,7 +34,7 @@ struct GetTopicsResponse_
 
 
 
-   typedef std::vector<std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other > , typename ContainerAllocator::template rebind<std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other > >::other >  _top_topics_type;
+   typedef  ::r_chatbot::StringList_<ContainerAllocator>  _top_topics_type;
   _top_topics_type top_topics;
 
 
@@ -70,7 +71,7 @@ namespace message_traits
 
 
 // BOOLTRAITS {'IsFixedSize': False, 'IsMessage': True, 'HasHeader': False}
-// {'std_msgs': ['/media/sf_GitHub/Perception_Robotics/catkin_ws/src/std_msgs/msg']}
+// {'r_chatbot': ['/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/msg'], 'std_msgs': ['/media/sf_GitHub/Perception_Robotics/catkin_ws/src/std_msgs/msg']}
 
 // !!!!!!!!!!! ['__class__', '__delattr__', '__dict__', '__doc__', '__eq__', '__format__', '__getattribute__', '__hash__', '__init__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_parsed_fields', 'constants', 'fields', 'full_name', 'has_header', 'header_present', 'names', 'package', 'parsed_fields', 'short_name', 'text', 'types']
 
@@ -113,12 +114,12 @@ struct MD5Sum< ::r_chatbot::GetTopicsResponse_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "d8b60e9598247d141776a3a421f29cb0";
+    return "f0cc0cdb0b2dadb61c6e109d7df192ea";
   }
 
   static const char* value(const ::r_chatbot::GetTopicsResponse_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0xd8b60e9598247d14ULL;
-  static const uint64_t static_value2 = 0x1776a3a421f29cb0ULL;
+  static const uint64_t static_value1 = 0xf0cc0cdb0b2dadb6ULL;
+  static const uint64_t static_value2 = 0x1c6e109d7df192eaULL;
 };
 
 template<class ContainerAllocator>
@@ -138,7 +139,11 @@ struct Definition< ::r_chatbot::GetTopicsResponse_<ContainerAllocator> >
   static const char* value()
   {
     return "\n\
-string[] top_topics\n\
+StringList top_topics\n\
+\n\
+================================================================================\n\
+MSG: r_chatbot/StringList\n\
+string[] stringlist\n\
 ";
   }
 
@@ -176,12 +181,9 @@ struct Printer< ::r_chatbot::GetTopicsResponse_<ContainerAllocator> >
 {
   template<typename Stream> static void stream(Stream& s, const std::string& indent, const ::r_chatbot::GetTopicsResponse_<ContainerAllocator>& v)
   {
-    s << indent << "top_topics[]" << std::endl;
-    for (size_t i = 0; i < v.top_topics.size(); ++i)
-    {
-      s << indent << "  top_topics[" << i << "]: ";
-      Printer<std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other > >::stream(s, indent + "  ", v.top_topics[i]);
-    }
+    s << indent << "top_topics: ";
+    s << std::endl;
+    Printer< ::r_chatbot::StringList_<ContainerAllocator> >::stream(s, indent + "  ", v.top_topics);
   }
 };
 

@@ -9,13 +9,13 @@ from r_chatbot.srv import *
 from speech_to_text import SpeechRecognition
 import pyglet
 # This line must be before the tensorflow initialization or the program crashes
-print "setting up window"
+#print "setting up window"
 window = pyglet.window.Window(fullscreen=True)
-print "done setting up window"
+#print "done setting up window"
 
 input_sentence = ""
 current_emotion = ""
-devid = 0
+devid = -1
 top_words = []
 
 def face_recognize_client(user_interface, device_id):
@@ -56,8 +56,8 @@ def emotion_client(user_interface, device_id):
     rospy.wait_for_service('emotionreq')
     try:
         service = rospy.ServiceProxy('emotionreq', EmotionRecognize )
-        resp = service(device_id)
-        user_interface.stream_webcam("Current User Emotion", resp.emotion)
+       # resp = service(device_id)
+        user_interface.stream_webcam("Current User Emotion", "Happy")#resp.emotion)
         user_interface.render()
         return resp.emotion
     except rospy.ServiceException, e:
@@ -68,8 +68,7 @@ def get_topic_client(input_sentence):
     try:
         service = rospy.ServiceProxy('get_top_topics', GetTopics )
         resp = service(input_sentence)
-        print top_topics
-        return resp.top_topics
+        return resp.top_topics.stringlist
     except rospy.ServiceException, e:
         print "Service call failed: %s\n"%e
         return None
@@ -77,6 +76,7 @@ def get_topic_client(input_sentence):
 def write_history_client(username):
     rospy.wait_for_service('write_history')
     try:
+        #print "write history client"
         service = rospy.ServiceProxy('write_history', WriteHistory )
         resp = service(username)
         return resp.retval
@@ -87,6 +87,7 @@ def write_history_client(username):
 def load_history_client(username):
     rospy.wait_for_service('load_history')
     try:
+        #print "load history client"
         service = rospy.ServiceProxy('load_history', LoadHistory )
         resp = service(username)
         return resp.retval
@@ -104,7 +105,8 @@ def text_to_speech(text):
 # This function determines whether or not the chatbot has talked with the user
 def history_recollection(user_interface):
     uid, user_name = face_recognize_client(user_interface, devid)
-    if uid == -1:
+    assert(uid != None and user_name != None)
+    elif uid == -1:
         chatbot_response = "I don't think we've met before, what's your name?"
         user_interface.update_sprites(chatbot_response, " ".join(("Emotion: ", meeting_emotion)), " ".join(("User: ", "Unknown")), "Primary Topics: ")
         user_interface.render()
@@ -124,10 +126,10 @@ def history_recollection(user_interface):
 
 #Enter a Mircosoft Speech token into the SpeechRecognition constructor
 speech = SpeechRecognition("1a413224eeff42539b348bff8c1925c9")
-print "speech done"
+#print "speech done"
 
 user_interface = UserInterface(window)
-print "ui done"
+#print "ui done"
 
 # The chatbot will start listening to the user after they say "computer"
 # The bot will then read your emotion via webcam
@@ -135,14 +137,15 @@ print "ui done"
 while input_sentence != "computer":
     user_interface.update_sprites("Listening...", "Emotion: None", "User: Unknown", "Primary Topics: ")
     user_interface.render()
-    print "waiting on input"
-    input_sentence = "computer"#speech.recognize_speech()
+    #print "waiting on input"
+    input_sentence = speech.recognize_speech()
     print "You said: ", input_sentence
 
     meeting_emotion = emotion_client(user_interface, devid)
     assert(meeting_emotion != None)
 
     print "Emotion read: ", meeting_emotion
+
 
 # Make a call to see whether or not the user is recognized
 user_name = history_recollection(user_interface)
@@ -170,16 +173,19 @@ user_interface.remove_webcam_label()
 # Continously chat with the user until they say "goodbye computer"
 chatbot_response = ""
 input_sentence = speech.recognize_speech()
+#input_sentence = "goodbye"
 while input_sentence != "goodbye computer":
-
+    #print "Input, " ,input_sentence
    
     if input_sentence != "":
         print "Original input sentence: ", input_sentence
         top_words = get_topic_client(input_sentence)
-
-        print input_sentence
+        topics = [str(top_words[x]) for x in range(len(top_words))]
+        #print "top words", topics
+        
 
         response, correlation = context_client(input_sentence)
+        print "context response"
         assert(correlation != None)
         assert(response != None)
 
@@ -190,7 +196,7 @@ while input_sentence != "goodbye computer":
             chatbot_response = "I'm sorry, but I couldn't find an appropriate response to your query."
 
     if len(top_words) > 0:
-        user_interface.update_sprites(chatbot_response, " ".join(("Emotion: ", "N/A")), " ".join(("User: ", user_name)), " ".join(("Primary Topics: ", top_words[0], ", ", top_words[1])))
+        user_interface.update_sprites(chatbot_response, " ".join(("Emotion: ", "N/A")), " ".join(("User: ", user_name)), " ".join(("Primary Topics: ", topics[0], ", ", topics[1])))
     else:
         user_interface.update_sprites(chatbot_response, " ".join(("Emotion: ", "N/A")), " ".join(("User: ", user_name)), "Primary Topics: ")
     user_interface.render()
@@ -198,11 +204,11 @@ while input_sentence != "goodbye computer":
 
     chatbot_response = ""
     top_words = []
-    input_sentence = speech.recognize_speech()
+    #input_sentence = "goodbye computer" #"speech.recognize_speech()"
 
 
 
-leaving_emotion = emotion_client()
+leaving_emotion = emotion_client(user_interface, devid)
 assert(leaving_emotion != None)
 print "Leaving emotion: ", leaving_emotion
 
@@ -233,3 +239,4 @@ text_to_speech(chatbot_response)
 
 
 write_history_client(user_name)
+#print "the end"

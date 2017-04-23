@@ -55,10 +55,10 @@
   "r_chatbot/GetTopicsRequest")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql '<GetTopics-request>)))
   "Returns md5sum for a message object of type '<GetTopics-request>"
-  "21d1906049614cff8ad9f05ab6515139")
+  "879dc9a407babc475af0cd8d1b6e5981")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql 'GetTopics-request)))
   "Returns md5sum for a message object of type 'GetTopics-request"
-  "21d1906049614cff8ad9f05ab6515139")
+  "879dc9a407babc475af0cd8d1b6e5981")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<GetTopics-request>)))
   "Returns full string definition for message of type '<GetTopics-request>"
   (cl:format cl:nil "string input_sentence~%~%~%~%"))
@@ -80,8 +80,8 @@
   ((top_topics
     :reader top_topics
     :initarg :top_topics
-    :type (cl:vector cl:string)
-   :initform (cl:make-array 0 :element-type 'cl:string :initial-element "")))
+    :type r_chatbot-msg:StringList
+    :initform (cl:make-instance 'r_chatbot-msg:StringList)))
 )
 
 (cl:defclass GetTopics-response (<GetTopics-response>)
@@ -98,37 +98,11 @@
   (top_topics m))
 (cl:defmethod roslisp-msg-protocol:serialize ((msg <GetTopics-response>) ostream)
   "Serializes a message object of type '<GetTopics-response>"
-  (cl:let ((__ros_arr_len (cl:length (cl:slot-value msg 'top_topics))))
-    (cl:write-byte (cl:ldb (cl:byte 8 0) __ros_arr_len) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 8) __ros_arr_len) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 16) __ros_arr_len) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 24) __ros_arr_len) ostream))
-  (cl:map cl:nil #'(cl:lambda (ele) (cl:let ((__ros_str_len (cl:length ele)))
-    (cl:write-byte (cl:ldb (cl:byte 8 0) __ros_str_len) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 8) __ros_str_len) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 16) __ros_str_len) ostream)
-    (cl:write-byte (cl:ldb (cl:byte 8 24) __ros_str_len) ostream))
-  (cl:map cl:nil #'(cl:lambda (c) (cl:write-byte (cl:char-code c) ostream)) ele))
-   (cl:slot-value msg 'top_topics))
+  (roslisp-msg-protocol:serialize (cl:slot-value msg 'top_topics) ostream)
 )
 (cl:defmethod roslisp-msg-protocol:deserialize ((msg <GetTopics-response>) istream)
   "Deserializes a message object of type '<GetTopics-response>"
-  (cl:let ((__ros_arr_len 0))
-    (cl:setf (cl:ldb (cl:byte 8 0) __ros_arr_len) (cl:read-byte istream))
-    (cl:setf (cl:ldb (cl:byte 8 8) __ros_arr_len) (cl:read-byte istream))
-    (cl:setf (cl:ldb (cl:byte 8 16) __ros_arr_len) (cl:read-byte istream))
-    (cl:setf (cl:ldb (cl:byte 8 24) __ros_arr_len) (cl:read-byte istream))
-  (cl:setf (cl:slot-value msg 'top_topics) (cl:make-array __ros_arr_len))
-  (cl:let ((vals (cl:slot-value msg 'top_topics)))
-    (cl:dotimes (i __ros_arr_len)
-    (cl:let ((__ros_str_len 0))
-      (cl:setf (cl:ldb (cl:byte 8 0) __ros_str_len) (cl:read-byte istream))
-      (cl:setf (cl:ldb (cl:byte 8 8) __ros_str_len) (cl:read-byte istream))
-      (cl:setf (cl:ldb (cl:byte 8 16) __ros_str_len) (cl:read-byte istream))
-      (cl:setf (cl:ldb (cl:byte 8 24) __ros_str_len) (cl:read-byte istream))
-      (cl:setf (cl:aref vals i) (cl:make-string __ros_str_len))
-      (cl:dotimes (__ros_str_idx __ros_str_len msg)
-        (cl:setf (cl:char (cl:aref vals i) __ros_str_idx) (cl:code-char (cl:read-byte istream))))))))
+  (roslisp-msg-protocol:deserialize (cl:slot-value msg 'top_topics) istream)
   msg
 )
 (cl:defmethod roslisp-msg-protocol:ros-datatype ((msg (cl:eql '<GetTopics-response>)))
@@ -139,19 +113,19 @@
   "r_chatbot/GetTopicsResponse")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql '<GetTopics-response>)))
   "Returns md5sum for a message object of type '<GetTopics-response>"
-  "21d1906049614cff8ad9f05ab6515139")
+  "879dc9a407babc475af0cd8d1b6e5981")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql 'GetTopics-response)))
   "Returns md5sum for a message object of type 'GetTopics-response"
-  "21d1906049614cff8ad9f05ab6515139")
+  "879dc9a407babc475af0cd8d1b6e5981")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<GetTopics-response>)))
   "Returns full string definition for message of type '<GetTopics-response>"
-  (cl:format cl:nil "~%string[] top_topics~%~%~%"))
+  (cl:format cl:nil "~%StringList top_topics~%~%================================================================================~%MSG: r_chatbot/StringList~%string[] stringlist~%~%"))
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'GetTopics-response)))
   "Returns full string definition for message of type 'GetTopics-response"
-  (cl:format cl:nil "~%string[] top_topics~%~%~%"))
+  (cl:format cl:nil "~%StringList top_topics~%~%================================================================================~%MSG: r_chatbot/StringList~%string[] stringlist~%~%"))
 (cl:defmethod roslisp-msg-protocol:serialization-length ((msg <GetTopics-response>))
   (cl:+ 0
-     4 (cl:reduce #'cl:+ (cl:slot-value msg 'top_topics) :key #'(cl:lambda (ele) (cl:declare (cl:ignorable ele)) (cl:+ 4 (cl:length ele))))
+     (roslisp-msg-protocol:serialization-length (cl:slot-value msg 'top_topics))
 ))
 (cl:defmethod roslisp-msg-protocol:ros-message-to-list ((msg <GetTopics-response>))
   "Converts a ROS message object to a list"

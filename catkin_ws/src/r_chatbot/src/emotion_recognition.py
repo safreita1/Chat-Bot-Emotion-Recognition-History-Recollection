@@ -136,16 +136,13 @@ class EmotionRecognition:
 
         #Select the current emotion based on the one that has the highest value
         average_emotion = max(self.longterm_emotion_values.iteritems(), key=operator.itemgetter(1))[0]
-	print "average_emotion"	
-	print average_emotion
-
         return average_emotion
+
     def get_avg_emotion(self, req):
         self.run(int(req.devid))
         emotion = self.get_emotion
-	print emotion
         self.reset()
-        return "Happy" #emotion
+        return str(emotion)
 
     def emotionreq_server(self):
         rospy.init_node('emotionreq_server')

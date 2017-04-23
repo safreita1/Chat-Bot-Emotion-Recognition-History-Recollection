@@ -131,16 +131,20 @@ python3 = True if sys.hexversion > 0x03000000 else False
 import genpy
 import struct
 
+import r_chatbot.msg
 
 class GetTopicsResponse(genpy.Message):
-  _md5sum = "d8b60e9598247d141776a3a421f29cb0"
+  _md5sum = "f0cc0cdb0b2dadb61c6e109d7df192ea"
   _type = "r_chatbot/GetTopicsResponse"
   _has_header = False #flag to mark the presence of a Header object
   _full_text = """
-string[] top_topics
-"""
+StringList top_topics
+
+================================================================================
+MSG: r_chatbot/StringList
+string[] stringlist"""
   __slots__ = ['top_topics']
-  _slot_types = ['string[]']
+  _slot_types = ['r_chatbot/StringList']
 
   def __init__(self, *args, **kwds):
     """
@@ -160,9 +164,9 @@ string[] top_topics
       super(GetTopicsResponse, self).__init__(*args, **kwds)
       #message fields cannot be None, assign default values for those that are
       if self.top_topics is None:
-        self.top_topics = []
+        self.top_topics = r_chatbot.msg.StringList()
     else:
-      self.top_topics = []
+      self.top_topics = r_chatbot.msg.StringList()
 
   def _get_types(self):
     """
@@ -176,9 +180,9 @@ string[] top_topics
     :param buff: buffer, ``StringIO``
     """
     try:
-      length = len(self.top_topics)
+      length = len(self.top_topics.stringlist)
       buff.write(_struct_I.pack(length))
-      for val1 in self.top_topics:
+      for val1 in self.top_topics.stringlist:
         length = len(val1)
         if python3 or type(val1) == unicode:
           val1 = val1.encode('utf-8')
@@ -196,11 +200,13 @@ string[] top_topics
     :param str: byte array of serialized message, ``str``
     """
     try:
+      if self.top_topics is None:
+        self.top_topics = r_chatbot.msg.StringList()
       end = 0
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
-      self.top_topics = []
+      self.top_topics.stringlist = []
       for i in range(0, length):
         start = end
         end += 4
@@ -211,7 +217,7 @@ string[] top_topics
           val1 = str[start:end].decode('utf-8')
         else:
           val1 = str[start:end]
-        self.top_topics.append(val1)
+        self.top_topics.stringlist.append(val1)
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
@@ -224,9 +230,9 @@ string[] top_topics
     :param numpy: numpy python module
     """
     try:
-      length = len(self.top_topics)
+      length = len(self.top_topics.stringlist)
       buff.write(_struct_I.pack(length))
-      for val1 in self.top_topics:
+      for val1 in self.top_topics.stringlist:
         length = len(val1)
         if python3 or type(val1) == unicode:
           val1 = val1.encode('utf-8')
@@ -245,11 +251,13 @@ string[] top_topics
     :param numpy: numpy python module
     """
     try:
+      if self.top_topics is None:
+        self.top_topics = r_chatbot.msg.StringList()
       end = 0
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
-      self.top_topics = []
+      self.top_topics.stringlist = []
       for i in range(0, length):
         start = end
         end += 4
@@ -260,7 +268,7 @@ string[] top_topics
           val1 = str[start:end].decode('utf-8')
         else:
           val1 = str[start:end]
-        self.top_topics.append(val1)
+        self.top_topics.stringlist.append(val1)
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
@@ -268,6 +276,6 @@ string[] top_topics
 _struct_I = genpy.struct_I
 class GetTopics(object):
   _type          = 'r_chatbot/GetTopics'
-  _md5sum = '21d1906049614cff8ad9f05ab6515139'
+  _md5sum = '879dc9a407babc475af0cd8d1b6e5981'
   _request_class  = GetTopicsRequest
   _response_class = GetTopicsResponse
