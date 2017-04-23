@@ -2,6 +2,7 @@
 
 from gtts import gTTS
 import os
+<<<<<<< HEAD:catkin_ws/src/r_chatbot/src/chatbot.py
 from threading import Thread
 
 import rospy
@@ -11,6 +12,8 @@ from r_chatbot.srv import *
 from speech_to_text import SpeechRecognition
 
 
+=======
+>>>>>>> refs/remotes/origin/master:chatbot.py
 import pyglet
 # This line must be before the tensorflow initialization or the program crashes
 window = pyglet.window.Window(fullscreen=True)
@@ -18,12 +21,14 @@ window = pyglet.window.Window(fullscreen=True)
 from emotion_recognition import EmotionRecognition
 from context_recognition import ContextRecognition
 from speech_to_text import SpeechRecognition
-from FaceRecognizer import FaceRecognizer
+from face_recognizer import FaceRecognizer
 from user_interface import UserInterface
+from topic_extraction import TopicExtraction
 
 
 input_sentence = ""
 current_emotion = ""
+<<<<<<< HEAD:catkin_ws/src/r_chatbot/src/chatbot.py
 devid = 0
 def face_recognize_client():
     rospy.wait_for_service('facereq')
@@ -64,6 +69,10 @@ def emotion_client():
     except rospy.ServiceException, e:
         print "Service call failed: %s\n"%e
         return None
+=======
+top_words = []
+
+>>>>>>> refs/remotes/origin/master:chatbot.py
 
 def text_to_speech(text):
     if text:
@@ -74,20 +83,27 @@ def text_to_speech(text):
 
 # This function determines whether or not the chatbot has talked with the user
 def history_recollection():
+<<<<<<< HEAD:catkin_ws/src/r_chatbot/src/chatbot.py
     #history = FaceRecognizer()
     #history.build_imagecsv()
     #user_number = history.RecognizeFace()
     #user_name = history.names[user_number]
     uid, user_name = face_recognize_client()
+=======
+    history = FaceRecognizer(user_interface)
+    history.build_imagecsv()
+    user_number = history.RecognizeFace()
+    user_name = history.names[user_number]
+>>>>>>> refs/remotes/origin/master:chatbot.py
 
     if uid == -1:
         #print "did not recognize user ", user_name
         chatbot_response = "I don't think we've met before, what's your name?"
-        user_interface.update_sprites(chatbot_response, " ".join(("Emotion: ", meeting_emotion)), " ".join(("User: ", "Unknown")))
+        user_interface.update_sprites(chatbot_response, " ".join(("Emotion: ", meeting_emotion)), " ".join(("User: ", "Unknown")), "Primary Topics: ")
         user_interface.render()
         text_to_speech(chatbot_response)
         user_name = speech.recognize_speech()
-        user_interface.update_sprites(chatbot_response, " ".join(("Emotion: ", meeting_emotion)), " ".join(("User: ", user_name)))
+        user_interface.update_sprites(chatbot_response, " ".join(("Emotion: ", meeting_emotion)), " ".join(("User: ", user_name)), "Primary Topics: ")
         user_interface.render()
         #print "Name entered as: ", user_name
         #history.retrain(user_name)
@@ -97,11 +113,11 @@ def history_recollection():
     else:
         #print "recognized user ", user_name
         chatbot_response = "It's good to see you again, " + user_name
-        user_interface.update_sprites(chatbot_response, " ".join(("Emotion: ", meeting_emotion)), " ".join(("User: ", user_name)))
+        user_interface.update_sprites(chatbot_response, " ".join(("Emotion: ", meeting_emotion)), " ".join(("User: ", user_name)), "Primary Topics: ")
         user_interface.render()
         text_to_speech(chatbot_response)
 
-
+    history.exit()
     return user_name
 
 
@@ -131,6 +147,7 @@ user_interface = UserInterface(window)
 # The chatbot will start listening to the user after they say "computer"
 # The bot will then read your emotion via webcam
 while input_sentence != "computer":
+<<<<<<< HEAD:catkin_ws/src/r_chatbot/src/chatbot.py
 #<<<<<<< HEAD:catkin_ws/src/r_chatbot/src/chatbot.py
     #thread = Thread(target=emotion.run, args=())
     #thread.start()
@@ -142,10 +159,17 @@ while input_sentence != "computer":
     # thread.start()
  #   emotion.run()
 #>>>>>>> refs/remotes/origin/master:chatbot.py
+=======
+    user_interface.update_sprites("Listening...", "Emotion: None", "User: Unknown", "Primary Topics: ")
+    user_interface.render()
+
+    emotion.run()
+>>>>>>> refs/remotes/origin/master:chatbot.py
 
     input_sentence = speech.recognize_speech()
     print "You said: ", input_sentence
 
+<<<<<<< HEAD:catkin_ws/src/r_chatbot/src/chatbot.py
     #thread.join()
 #<<<<<<< HEAD:catkin_ws/src/r_chatbot/src/chatbot.py
     #meeting_emotion = emotion.get_emotion()
@@ -154,15 +178,23 @@ while input_sentence != "computer":
 #=======
  #   meeting_emotion = emotion.get_emotion()
 #>>>>>>> refs/remotes/origin/master:chatbot.py
+=======
+    meeting_emotion = emotion.get_emotion()
+>>>>>>> refs/remotes/origin/master:chatbot.py
     print "Emotion read: ", meeting_emotion
 
 # Make a call to see whether or not the user is recognized
 user_name = history_recollection()
 
+<<<<<<< HEAD:catkin_ws/src/r_chatbot/src/chatbot.py
 #<<<<<<< HEAD:catkin_ws/src/r_chatbot/src/chatbot.py
 #print "name: " + name
 #Based on the emotion read from the webcam, the chatbot will respond differently
 #=======
+=======
+topic_extract = TopicExtraction()
+topic_extract.load_history(user_name)
+>>>>>>> refs/remotes/origin/master:chatbot.py
 
 # Based on the emotion read from the webcam, the chatbot will respond differently
 #>>>>>>> refs/remotes/origin/master:chatbot.py
@@ -175,10 +207,10 @@ elif meeting_emotion is "Neutral":
 else:
     chatbot_response = "I sense that you may be bothered right now. How can I help?"
 
-user_interface.update_sprites(chatbot_response, " ".join(("Emotion: ", meeting_emotion)), " ".join(("User: ", user_name)))
+user_interface.update_sprites(chatbot_response, " ".join(("Emotion: ", meeting_emotion)), " ".join(("User: ", user_name)), "Primary Topics: ")
 user_interface.render()
 text_to_speech(chatbot_response)
-
+user_interface.remove_webcam_label()
 
 # Continously chat with the user until they say "goodbye computer"
 chatbot_response = ""
@@ -186,6 +218,7 @@ input_sentence = speech.recognize_speech()
 while input_sentence != "goodbye computer":
     #print "User said: ", input_sentence
 
+<<<<<<< HEAD:catkin_ws/src/r_chatbot/src/chatbot.py
     #response, correlation = context.compute_document_similarity(input_sentence)
     response, correlation = context_client(input_sentence)
     assert(correlation != None)
@@ -195,12 +228,33 @@ while input_sentence != "goodbye computer":
         chatbot_response = response
     elif correlation == 0 and input_sentence:
         chatbot_response = "I'm sorry, but I couldn't find an appropriate response to your query."
+=======
+    if input_sentence != "":
+        print "Original input sentence: ", input_sentence
 
-    user_interface.update_sprites(chatbot_response, " ".join(("Emotion: ", "N/A")), " ".join(("User: ", user_name)))
+        top_words = topic_extract.get_top_topics(input_sentence)
+        #input_sentence = " ".join((input_sentence, top_words[0]))
+        print input_sentence
+
+        response, correlation = context.compute_document_similarity(input_sentence)
+
+        if correlation > 0:
+            #print "Chatbot response: ", response, "\nCorrelation: ", correlation
+            chatbot_response = response
+>>>>>>> refs/remotes/origin/master:chatbot.py
+
+        elif correlation == 0 and input_sentence:
+            chatbot_response = "I'm sorry, but I couldn't find an appropriate response to your query."
+
+    if len(top_words) > 0:
+        user_interface.update_sprites(chatbot_response, " ".join(("Emotion: ", "N/A")), " ".join(("User: ", user_name)), " ".join(("Primary Topics: ", top_words[0], ", ", top_words[1])))
+    else:
+        user_interface.update_sprites(chatbot_response, " ".join(("Emotion: ", "N/A")), " ".join(("User: ", user_name)), "Primary Topics: ")
     user_interface.render()
     text_to_speech(chatbot_response)
 
     chatbot_response = ""
+    top_words = []
     input_sentence = speech.recognize_speech()
 
 #<<<<<<< HEAD:catkin_ws/src/r_chatbot/src/chatbot.py
@@ -214,9 +268,16 @@ assert(leaving_emotion != None)
 #=======
 
 # Run the emotion check again to see how the user feels after talking
+<<<<<<< HEAD:catkin_ws/src/r_chatbot/src/chatbot.py
 #emotion.run()
 #leaving_emotion = emotion.get_emotion()
 #print "Leaving emotion: ", leaving_emotion
+=======
+emotion.reset()
+emotion.run()
+leaving_emotion = emotion.get_emotion()
+print "Leaving emotion: ", leaving_emotion
+>>>>>>> refs/remotes/origin/master:chatbot.py
 #print "Name: ", user_name
 #>>>>>>> refs/remotes/origin/master:chatbot.py
 
@@ -225,11 +286,11 @@ assert(leaving_emotion != None)
 if (meeting_emotion is "Happy" or meeting_emotion is "Surprise") and (leaving_emotion is "Angry" or leaving_emotion is
     "Sad" or leaving_emotion is "Disgust" or leaving_emotion is "Fear"):
 
-    chatbot_response = "It seems like I left you in a worse mood than when you arrived, hopefully I can do a better job next time."
+    chatbot_response = "I apologize, it seems that I left you in a worse mood than before we talked."
 
 # Else if the user came in angry and left happy, respond happy
 elif (meeting_emotion is "Angry" or meeting_emotion is "Sad" or meeting_emotion is "Disgust" or meeting_emotion is "Fear") and (leaving_emotion is "Happy" or leaving_emotion is "Surprise"):
-    chatbot_response = "It seems that you're in a better mood than when you arrived, I'm glad our conversation cheered you up."
+    chatbot_response = "I'm happy, it seems that you're in a better mood than before our talk."
 
 # Otherwise, respond with a standard goodbye
 else:
@@ -238,9 +299,14 @@ else:
     else:
         chatbot_response = "Bye, " + user_name + ". It was nice talking to you."
 
-user_interface.update_sprites(chatbot_response, " ".join(("Emotion: ", leaving_emotion)), " ".join(("User: ", user_name)))
+
+if len(top_words) > 0:
+    user_interface.update_sprites(chatbot_response, " ".join(("Emotion: ", leaving_emotion)), " ".join(("User: ", user_name)), " ".join(("Primary Topics: ", top_words[0], ", ", top_words[1])))
+else:
+    user_interface.update_sprites(chatbot_response, " ".join(("Emotion: ", leaving_emotion)), " ".join(("User: ", user_name)), "Primary Topics: ")
 user_interface.render()
 text_to_speech(chatbot_response)
+topic_extract.write_history(user_name)
 
 
 

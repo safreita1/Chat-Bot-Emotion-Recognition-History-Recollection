@@ -7,6 +7,7 @@ from tflearn.data_preprocessing import ImagePreprocessing
 from collections import deque
 import operator
 
+
 import rospy
 import r_chatbot
 from r_chatbot.srv import *
@@ -16,13 +17,19 @@ from PIL import Image
 import sys
 
 
-class EmotionRecognition:
-    model = None
+# Create emotion queue of last 'x' emotions to smooth the output
+emotion_queue = deque(maxlen=10)
+run_queue = deque()
 
-    user_interface = None
+
+class EmotionRecognition:
 
     def __init__(self, user_interface):
         self.user_interface = user_interface
+        self.model = None
+        self.longterm_emotion_values = {'Angry': 0.0, 'Disgust': 0.0, 'Fear': 0.0, 'Happy': 0.0, 'Sad': 0.0, 'Surprise': 0.0,
+                                   'Neutral': 0.0}
+        self.n = 5
         self.start()
         self.emotionreq_server()
 
@@ -42,7 +49,7 @@ class EmotionRecognition:
         #Iterate through each emotion in the queue and create an average of the emotions
         for pair in emotion_queue:
             emotion_values[pair[1]] += pair[0]
-            longterm_emotion_values[pair[1]] += pair[0]
+            self.longterm_emotion_values[pair[1]] += pair[0]
 
         #Select the current emotion based on the one that has the highest value
         average_emotion = max(emotion_values.iteritems(), key=operator.itemgetter(1))[0]
@@ -62,12 +69,11 @@ class EmotionRecognition:
         prediction = self.model.predict(image_processed)
         emotion = self.smooth_emotions(prediction)
 
+        self.user_interface.stream_webcam("Current User Emotion", emotion)
+        self.user_interface.render()
         #font = cv2.FONT_HERSHEY_SIMPLEX
         #cv2.putText(img, "Emotion: " + emotion, (50, 450), font, 1, (255, 255, 255), 2, cv2.CV_AA)
         #cv2.imshow('img', img)
-        self.user_interface.stream_webcam(img)
-        self.user_interface.render()
-
 
     def start(self):
         # Real-time preprocessing of the image data
@@ -83,11 +89,11 @@ class EmotionRecognition:
         # Building Residual Network
         net = tflearn.input_data(shape=[None, 48, 48, 1], data_preprocessing=img_prep, data_augmentation=img_aug)
         net = tflearn.conv_2d(net, nb_filter=16, filter_size=3, regularizer='L2', weight_decay=0.0001)
-        net = tflearn.residual_block(net, n, 16)
+        net = tflearn.residual_block(net, self.n, 16)
         net = tflearn.residual_block(net, 1, 32, downsample=True)
-        net = tflearn.residual_block(net, n - 1, 32)
+        net = tflearn.residual_block(net, self.n - 1, 32)
         net = tflearn.residual_block(net, 1, 64, downsample=True)
-        net = tflearn.residual_block(net, n - 1, 64)
+        net = tflearn.residual_block(net, self.n - 1, 64)
         net = tflearn.batch_normalization(net)
         net = tflearn.activation(net, 'relu')
         net = tflearn.global_avg_pool(net)
@@ -118,6 +124,7 @@ class EmotionRecognition:
                 cv2.rectangle(img, (x, y), (x + w, y + h), (255, 0, 0), 2)
                 roi_gray = gray[y:y + h, x:x + w]
                 roi_color = img[y:y + h, x:x + w]
+                cv2.imwrite('webstream.png', img)
                 self.process_image(roi_gray, img)
             if cv2.waitKey(1) & 0xFF == ord('q'):
                 break
@@ -125,13 +132,25 @@ class EmotionRecognition:
         cap.release()
         cv2.destroyAllWindows()
 
+    def reset(self):
+        emotion_queue = deque(maxlen=10)
+        run_queue = deque()
+
+        self.longterm_emotion_values['Angry'] = 0.0
+        self.longterm_emotion_values['Disgust'] = 0.0
+        self.longterm_emotion_values['Fear'] = 0.0
+        self.longterm_emotion_values['Happy'] = 0.0
+        self.longterm_emotion_values['Sad'] = 0.0
+        self.longterm_emotion_values['Surprise'] = 0.0
+        self.longterm_emotion_values['Neutral'] = 0.0
+
     def get_emotion(self):
         #Iterate through each emotion in the queue and create an average of the emotions
         for pair in run_queue:
-            longterm_emotion_values[pair[1]] += pair[0]
+            self.longterm_emotion_values[pair[1]] += pair[0]
 
         #Select the current emotion based on the one that has the highest value
-        average_emotion = max(longterm_emotion_values.iteritems(), key=operator.itemgetter(1))[0]
+        average_emotion = max(self.longterm_emotion_values.iteritems(), key=operator.itemgetter(1))[0]
 
         return average_emotion
     def get_avg_emotion(self, req):
@@ -145,10 +164,5 @@ class EmotionRecognition:
 
 
 
-n=5
-# Create emotion queue of last 'x' emotions to smooth the output
-emotion_queue = deque(maxlen=10)
-run_queue = deque()
-longterm_emotion_values = {'Angry': 0.0, 'Disgust': 0.0, 'Fear': 0.0, 'Happy': 0.0, 'Sad': 0.0, 'Surprise': 0.0, 'Neutral': 0.0}
 
 emotion = EmotionRecognition()
