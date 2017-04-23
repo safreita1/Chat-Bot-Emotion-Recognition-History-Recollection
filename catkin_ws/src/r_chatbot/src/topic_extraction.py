@@ -20,6 +20,7 @@ class TopicExtraction:
         self.n_features = 1000
         self.n_topics = 2
         self.previous_conversation = []
+        self.topic_server()
 
     def load_history(self, username):
         check = os.path.isfile('history/' + username + '_history')
@@ -101,3 +102,5 @@ class TopicExtraction:
         s3 = rospy.Service('load_history', LoadHistory, self.load_history_service)
         print "topic server ready"
         rospy.spin()
+        
+topic = TopicExtraction();

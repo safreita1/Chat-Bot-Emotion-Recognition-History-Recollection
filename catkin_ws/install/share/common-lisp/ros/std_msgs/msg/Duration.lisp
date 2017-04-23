@@ -67,10 +67,10 @@
   "3e286caf4241d664e55f3ad380e2ae46")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<Duration>)))
   "Returns full string definition for message of type '<Duration>"
-  (cl:format cl:nil "duration data~%~%~%"))
+  (cl:format cl:nil "duration data~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'Duration)))
   "Returns full string definition for message of type 'Duration"
-  (cl:format cl:nil "duration data~%~%~%"))
+  (cl:format cl:nil "duration data~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:serialization-length ((msg <Duration>))
   (cl:+ 0
      8

@@ -49,10 +49,10 @@
   "ad736a2e8818154c487bb80fe42ce43b")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<Byte>)))
   "Returns full string definition for message of type '<Byte>"
-  (cl:format cl:nil "byte data~%~%~%"))
+  (cl:format cl:nil "byte data~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'Byte)))
   "Returns full string definition for message of type 'Byte"
-  (cl:format cl:nil "byte data~%~%~%"))
+  (cl:format cl:nil "byte data~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:serialization-length ((msg <Byte>))
   (cl:+ 0
      1

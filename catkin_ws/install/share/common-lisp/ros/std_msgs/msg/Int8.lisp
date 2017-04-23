@@ -53,10 +53,10 @@
   "27ffa0c9c4b8fb8492252bcad9e5c57b")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<Int8>)))
   "Returns full string definition for message of type '<Int8>"
-  (cl:format cl:nil "int8 data~%~%~%"))
+  (cl:format cl:nil "int8 data~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'Int8)))
   "Returns full string definition for message of type 'Int8"
-  (cl:format cl:nil "int8 data~%~%~%"))
+  (cl:format cl:nil "int8 data~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:serialization-length ((msg <Int8>))
   (cl:+ 0
      1

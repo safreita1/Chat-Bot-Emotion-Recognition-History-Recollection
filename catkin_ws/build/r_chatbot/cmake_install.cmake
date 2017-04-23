@@ -38,6 +38,9 @@ IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
     "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/FaceTrain.srv"
     "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/Context.srv"
     "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/EmotionRecognize.srv"
+    "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/WriteHistory.srv"
+    "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/GetTopics.srv"
+    "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/LoadHistory.srv"
     )
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 

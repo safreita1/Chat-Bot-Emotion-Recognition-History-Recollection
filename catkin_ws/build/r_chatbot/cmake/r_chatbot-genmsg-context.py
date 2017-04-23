@@ -1,7 +1,7 @@
 # generated from genmsg/cmake/pkg-genmsg.context.in
 
 messages_str = ""
-services_str = "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/FaceRecognize.srv;/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/FaceTrain.srv;/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/Context.srv;/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/EmotionRecognize.srv"
+services_str = "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/FaceRecognize.srv;/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/FaceTrain.srv;/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/Context.srv;/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/EmotionRecognize.srv;/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/WriteHistory.srv;/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/GetTopics.srv;/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/LoadHistory.srv"
 pkg_name = "r_chatbot"
 dependencies_str = "std_msgs"
 langs = "gencpp;genlisp;genpy"

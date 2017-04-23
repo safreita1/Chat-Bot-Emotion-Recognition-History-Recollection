@@ -55,10 +55,10 @@
   "8524586e34fbd7cb1c08c5f5f1ca0e57")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<Int16>)))
   "Returns full string definition for message of type '<Int16>"
-  (cl:format cl:nil "int16 data~%~%~%"))
+  (cl:format cl:nil "int16 data~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'Int16)))
   "Returns full string definition for message of type 'Int16"
-  (cl:format cl:nil "int16 data~%~%~%"))
+  (cl:format cl:nil "int16 data~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:serialization-length ((msg <Int16>))
   (cl:+ 0
      2

@@ -61,10 +61,10 @@
   "992ce8a1687cec8c8bd883ec73ca41d1")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<String>)))
   "Returns full string definition for message of type '<String>"
-  (cl:format cl:nil "string data~%~%~%"))
+  (cl:format cl:nil "string data~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'String)))
   "Returns full string definition for message of type 'String"
-  (cl:format cl:nil "string data~%~%~%"))
+  (cl:format cl:nil "string data~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:serialization-length ((msg <String>))
   (cl:+ 0
      4 (cl:length (cl:slot-value msg 'data))

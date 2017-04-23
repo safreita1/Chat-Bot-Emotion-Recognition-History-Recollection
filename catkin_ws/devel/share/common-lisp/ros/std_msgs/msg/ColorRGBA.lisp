@@ -121,10 +121,10 @@
   "a29a96539573343b1310c73607334b00")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<ColorRGBA>)))
   "Returns full string definition for message of type '<ColorRGBA>"
-  (cl:format cl:nil "float32 r~%float32 g~%float32 b~%float32 a~%~%~%"))
+  (cl:format cl:nil "float32 r~%float32 g~%float32 b~%float32 a~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'ColorRGBA)))
   "Returns full string definition for message of type 'ColorRGBA"
-  (cl:format cl:nil "float32 r~%float32 g~%float32 b~%float32 a~%~%~%"))
+  (cl:format cl:nil "float32 r~%float32 g~%float32 b~%float32 a~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:serialization-length ((msg <ColorRGBA>))
   (cl:+ 0
      4

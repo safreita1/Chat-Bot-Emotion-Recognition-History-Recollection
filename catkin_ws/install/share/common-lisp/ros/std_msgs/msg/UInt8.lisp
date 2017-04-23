@@ -49,10 +49,10 @@
   "7c8164229e7d2c17eb95e9231617fdee")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<UInt8>)))
   "Returns full string definition for message of type '<UInt8>"
-  (cl:format cl:nil "uint8 data~%~%~%"))
+  (cl:format cl:nil "uint8 data~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'UInt8)))
   "Returns full string definition for message of type 'UInt8"
-  (cl:format cl:nil "uint8 data~%~%~%"))
+  (cl:format cl:nil "uint8 data~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:serialization-length ((msg <UInt8>))
   (cl:+ 0
      1

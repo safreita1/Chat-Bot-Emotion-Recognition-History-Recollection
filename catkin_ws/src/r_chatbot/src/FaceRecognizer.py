@@ -100,7 +100,7 @@ class FaceRecognizer:
         #print self.maxlabel
         facelist = []
         name = req.name
-        self.vcap = cv2.VideoCapture(int(req.devid))
+        self.vcap = cv2.VideoCapture(0)#int(req.devid))
 
         c = 0
         while True:
@@ -147,7 +147,7 @@ class FaceRecognizer:
     def RecognizeFace(self, req):
         reclist = []
         #print " Recognizing face "
-        self.vcap = cv2.VideoCapture(req.devid)
+        self.vcap = cv2.VideoCapture(0)#int(req.devid))
         c = 0
         while True:
             ret, frame = self.vcap.read()
@@ -161,7 +161,7 @@ class FaceRecognizer:
                 flags=cv2.cv.CV_HAAR_SCALE_IMAGE
             )
             for (x, y, w, h) in faces:
-                #print "found face"
+                print "found face"
                 face = numpy.array(gray[y: y + h, x: x + w])
                 face = cv2.resize(face, (self.size[1], self.size[0]), 1.0, 1.0)
                 #cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)

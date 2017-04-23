@@ -93,7 +93,7 @@ class ContextRecognition:
         return best_match, correlation
     def context_server(self):
         rospy.init_node('context_server')
-        s1 = rospy.Service('context', r_chatbot.srv.Context, self.compute_document_similarity)
+        s1 = rospy.Service('context', Context, self.compute_document_similarity)
         print "Context server ready"
         rospy.spin()
 

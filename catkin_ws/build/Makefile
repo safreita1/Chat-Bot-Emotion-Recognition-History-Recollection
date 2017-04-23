@@ -813,6 +813,45 @@ _r_chatbot_generate_messages_check_deps_FaceTrain/fast:
 .PHONY : _r_chatbot_generate_messages_check_deps_FaceTrain/fast
 
 #=============================================================================
+# Target rules for targets named _r_chatbot_generate_messages_check_deps_GetTopics
+
+# Build rule for target.
+_r_chatbot_generate_messages_check_deps_GetTopics: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _r_chatbot_generate_messages_check_deps_GetTopics
+.PHONY : _r_chatbot_generate_messages_check_deps_GetTopics
+
+# fast build rule for target.
+_r_chatbot_generate_messages_check_deps_GetTopics/fast:
+	$(MAKE) -f r_chatbot/CMakeFiles/_r_chatbot_generate_messages_check_deps_GetTopics.dir/build.make r_chatbot/CMakeFiles/_r_chatbot_generate_messages_check_deps_GetTopics.dir/build
+.PHONY : _r_chatbot_generate_messages_check_deps_GetTopics/fast
+
+#=============================================================================
+# Target rules for targets named _r_chatbot_generate_messages_check_deps_LoadHistory
+
+# Build rule for target.
+_r_chatbot_generate_messages_check_deps_LoadHistory: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _r_chatbot_generate_messages_check_deps_LoadHistory
+.PHONY : _r_chatbot_generate_messages_check_deps_LoadHistory
+
+# fast build rule for target.
+_r_chatbot_generate_messages_check_deps_LoadHistory/fast:
+	$(MAKE) -f r_chatbot/CMakeFiles/_r_chatbot_generate_messages_check_deps_LoadHistory.dir/build.make r_chatbot/CMakeFiles/_r_chatbot_generate_messages_check_deps_LoadHistory.dir/build
+.PHONY : _r_chatbot_generate_messages_check_deps_LoadHistory/fast
+
+#=============================================================================
+# Target rules for targets named _r_chatbot_generate_messages_check_deps_WriteHistory
+
+# Build rule for target.
+_r_chatbot_generate_messages_check_deps_WriteHistory: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _r_chatbot_generate_messages_check_deps_WriteHistory
+.PHONY : _r_chatbot_generate_messages_check_deps_WriteHistory
+
+# fast build rule for target.
+_r_chatbot_generate_messages_check_deps_WriteHistory/fast:
+	$(MAKE) -f r_chatbot/CMakeFiles/_r_chatbot_generate_messages_check_deps_WriteHistory.dir/build.make r_chatbot/CMakeFiles/_r_chatbot_generate_messages_check_deps_WriteHistory.dir/build
+.PHONY : _r_chatbot_generate_messages_check_deps_WriteHistory/fast
+
+#=============================================================================
 # Target rules for targets named r_chatbot_gencpp
 
 # Build rule for target.
@@ -967,6 +1006,9 @@ help:
 	@echo "... _r_chatbot_generate_messages_check_deps_EmotionRecognize"
 	@echo "... _r_chatbot_generate_messages_check_deps_FaceRecognize"
 	@echo "... _r_chatbot_generate_messages_check_deps_FaceTrain"
+	@echo "... _r_chatbot_generate_messages_check_deps_GetTopics"
+	@echo "... _r_chatbot_generate_messages_check_deps_LoadHistory"
+	@echo "... _r_chatbot_generate_messages_check_deps_WriteHistory"
 	@echo "... r_chatbot_gencpp"
 	@echo "... r_chatbot_generate_messages"
 	@echo "... r_chatbot_generate_messages_cpp"

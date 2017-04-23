@@ -51,10 +51,10 @@
   "1df79edf208b629fe6b81923a544552d")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<UInt16>)))
   "Returns full string definition for message of type '<UInt16>"
-  (cl:format cl:nil "uint16 data~%~%~%"))
+  (cl:format cl:nil "uint16 data~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'UInt16)))
   "Returns full string definition for message of type 'UInt16"
-  (cl:format cl:nil "uint16 data~%~%~%"))
+  (cl:format cl:nil "uint16 data~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:serialization-length ((msg <UInt16>))
   (cl:+ 0
      2

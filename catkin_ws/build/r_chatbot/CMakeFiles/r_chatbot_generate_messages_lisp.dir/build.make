@@ -47,8 +47,11 @@ include r_chatbot/CMakeFiles/r_chatbot_generate_messages_lisp.dir/progress.make
 
 r_chatbot/CMakeFiles/r_chatbot_generate_messages_lisp: /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/share/common-lisp/ros/r_chatbot/srv/Context.lisp
 r_chatbot/CMakeFiles/r_chatbot_generate_messages_lisp: /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/share/common-lisp/ros/r_chatbot/srv/EmotionRecognize.lisp
+r_chatbot/CMakeFiles/r_chatbot_generate_messages_lisp: /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/share/common-lisp/ros/r_chatbot/srv/LoadHistory.lisp
 r_chatbot/CMakeFiles/r_chatbot_generate_messages_lisp: /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/share/common-lisp/ros/r_chatbot/srv/FaceRecognize.lisp
+r_chatbot/CMakeFiles/r_chatbot_generate_messages_lisp: /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/share/common-lisp/ros/r_chatbot/srv/GetTopics.lisp
 r_chatbot/CMakeFiles/r_chatbot_generate_messages_lisp: /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/share/common-lisp/ros/r_chatbot/srv/FaceTrain.lisp
+r_chatbot/CMakeFiles/r_chatbot_generate_messages_lisp: /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/share/common-lisp/ros/r_chatbot/srv/WriteHistory.lisp
 
 /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/share/common-lisp/ros/r_chatbot/srv/Context.lisp: /opt/ros/indigo/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py
 /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/share/common-lisp/ros/r_chatbot/srv/Context.lisp: /media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/Context.srv
@@ -62,23 +65,44 @@ r_chatbot/CMakeFiles/r_chatbot_generate_messages_lisp: /media/sf_GitHub/Percepti
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating Lisp code from r_chatbot/EmotionRecognize.srv"
 	cd /media/sf_GitHub/Perception_Robotics/catkin_ws/build/r_chatbot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/EmotionRecognize.srv -Istd_msgs:/media/sf_GitHub/Perception_Robotics/catkin_ws/src/std_msgs/msg -p r_chatbot -o /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/share/common-lisp/ros/r_chatbot/srv
 
+/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/share/common-lisp/ros/r_chatbot/srv/LoadHistory.lisp: /opt/ros/indigo/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py
+/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/share/common-lisp/ros/r_chatbot/srv/LoadHistory.lisp: /media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/LoadHistory.srv
+	$(CMAKE_COMMAND) -E cmake_progress_report /media/sf_GitHub/Perception_Robotics/catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_3)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating Lisp code from r_chatbot/LoadHistory.srv"
+	cd /media/sf_GitHub/Perception_Robotics/catkin_ws/build/r_chatbot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/LoadHistory.srv -Istd_msgs:/media/sf_GitHub/Perception_Robotics/catkin_ws/src/std_msgs/msg -p r_chatbot -o /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/share/common-lisp/ros/r_chatbot/srv
+
 /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/share/common-lisp/ros/r_chatbot/srv/FaceRecognize.lisp: /opt/ros/indigo/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py
 /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/share/common-lisp/ros/r_chatbot/srv/FaceRecognize.lisp: /media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/FaceRecognize.srv
-	$(CMAKE_COMMAND) -E cmake_progress_report /media/sf_GitHub/Perception_Robotics/catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_3)
+	$(CMAKE_COMMAND) -E cmake_progress_report /media/sf_GitHub/Perception_Robotics/catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_4)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating Lisp code from r_chatbot/FaceRecognize.srv"
 	cd /media/sf_GitHub/Perception_Robotics/catkin_ws/build/r_chatbot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/FaceRecognize.srv -Istd_msgs:/media/sf_GitHub/Perception_Robotics/catkin_ws/src/std_msgs/msg -p r_chatbot -o /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/share/common-lisp/ros/r_chatbot/srv
 
+/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/share/common-lisp/ros/r_chatbot/srv/GetTopics.lisp: /opt/ros/indigo/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py
+/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/share/common-lisp/ros/r_chatbot/srv/GetTopics.lisp: /media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/GetTopics.srv
+	$(CMAKE_COMMAND) -E cmake_progress_report /media/sf_GitHub/Perception_Robotics/catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_5)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating Lisp code from r_chatbot/GetTopics.srv"
+	cd /media/sf_GitHub/Perception_Robotics/catkin_ws/build/r_chatbot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/GetTopics.srv -Istd_msgs:/media/sf_GitHub/Perception_Robotics/catkin_ws/src/std_msgs/msg -p r_chatbot -o /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/share/common-lisp/ros/r_chatbot/srv
+
 /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/share/common-lisp/ros/r_chatbot/srv/FaceTrain.lisp: /opt/ros/indigo/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py
 /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/share/common-lisp/ros/r_chatbot/srv/FaceTrain.lisp: /media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/FaceTrain.srv
-	$(CMAKE_COMMAND) -E cmake_progress_report /media/sf_GitHub/Perception_Robotics/catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_4)
+	$(CMAKE_COMMAND) -E cmake_progress_report /media/sf_GitHub/Perception_Robotics/catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_6)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating Lisp code from r_chatbot/FaceTrain.srv"
 	cd /media/sf_GitHub/Perception_Robotics/catkin_ws/build/r_chatbot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/FaceTrain.srv -Istd_msgs:/media/sf_GitHub/Perception_Robotics/catkin_ws/src/std_msgs/msg -p r_chatbot -o /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/share/common-lisp/ros/r_chatbot/srv
+
+/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/share/common-lisp/ros/r_chatbot/srv/WriteHistory.lisp: /opt/ros/indigo/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py
+/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/share/common-lisp/ros/r_chatbot/srv/WriteHistory.lisp: /media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/WriteHistory.srv
+	$(CMAKE_COMMAND) -E cmake_progress_report /media/sf_GitHub/Perception_Robotics/catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_7)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating Lisp code from r_chatbot/WriteHistory.srv"
+	cd /media/sf_GitHub/Perception_Robotics/catkin_ws/build/r_chatbot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/WriteHistory.srv -Istd_msgs:/media/sf_GitHub/Perception_Robotics/catkin_ws/src/std_msgs/msg -p r_chatbot -o /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/share/common-lisp/ros/r_chatbot/srv
 
 r_chatbot_generate_messages_lisp: r_chatbot/CMakeFiles/r_chatbot_generate_messages_lisp
 r_chatbot_generate_messages_lisp: /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/share/common-lisp/ros/r_chatbot/srv/Context.lisp
 r_chatbot_generate_messages_lisp: /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/share/common-lisp/ros/r_chatbot/srv/EmotionRecognize.lisp
+r_chatbot_generate_messages_lisp: /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/share/common-lisp/ros/r_chatbot/srv/LoadHistory.lisp
 r_chatbot_generate_messages_lisp: /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/share/common-lisp/ros/r_chatbot/srv/FaceRecognize.lisp
+r_chatbot_generate_messages_lisp: /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/share/common-lisp/ros/r_chatbot/srv/GetTopics.lisp
 r_chatbot_generate_messages_lisp: /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/share/common-lisp/ros/r_chatbot/srv/FaceTrain.lisp
+r_chatbot_generate_messages_lisp: /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/share/common-lisp/ros/r_chatbot/srv/WriteHistory.lisp
 r_chatbot_generate_messages_lisp: r_chatbot/CMakeFiles/r_chatbot_generate_messages_lisp.dir/build.make
 .PHONY : r_chatbot_generate_messages_lisp
 

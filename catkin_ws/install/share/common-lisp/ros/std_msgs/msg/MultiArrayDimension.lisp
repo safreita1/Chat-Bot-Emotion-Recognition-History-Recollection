@@ -97,10 +97,10 @@
   "4cd0c83a8683deae40ecdac60e53bfa8")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<MultiArrayDimension>)))
   "Returns full string definition for message of type '<MultiArrayDimension>"
-  (cl:format cl:nil "string label   # label of given dimension~%uint32 size    # size of given dimension (in type units)~%uint32 stride  # stride of given dimension~%~%"))
+  (cl:format cl:nil "string label   # label of given dimension~%uint32 size    # size of given dimension (in type units)~%uint32 stride  # stride of given dimension~%~%"))
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'MultiArrayDimension)))
   "Returns full string definition for message of type 'MultiArrayDimension"
-  (cl:format cl:nil "string label   # label of given dimension~%uint32 size    # size of given dimension (in type units)~%uint32 stride  # stride of given dimension~%~%"))
+  (cl:format cl:nil "string label   # label of given dimension~%uint32 size    # size of given dimension (in type units)~%uint32 stride  # stride of given dimension~%~%"))
 (cl:defmethod roslisp-msg-protocol:serialization-length ((msg <MultiArrayDimension>))
   (cl:+ 0
      4 (cl:length (cl:slot-value msg 'label))

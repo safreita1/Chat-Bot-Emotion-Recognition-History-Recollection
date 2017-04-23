@@ -47,8 +47,11 @@ include r_chatbot/CMakeFiles/r_chatbot_generate_messages_py.dir/progress.make
 
 r_chatbot/CMakeFiles/r_chatbot_generate_messages_py: /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/r_chatbot/srv/_Context.py
 r_chatbot/CMakeFiles/r_chatbot_generate_messages_py: /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/r_chatbot/srv/_EmotionRecognize.py
+r_chatbot/CMakeFiles/r_chatbot_generate_messages_py: /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/r_chatbot/srv/_LoadHistory.py
 r_chatbot/CMakeFiles/r_chatbot_generate_messages_py: /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/r_chatbot/srv/_FaceRecognize.py
+r_chatbot/CMakeFiles/r_chatbot_generate_messages_py: /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/r_chatbot/srv/_GetTopics.py
 r_chatbot/CMakeFiles/r_chatbot_generate_messages_py: /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/r_chatbot/srv/_FaceTrain.py
+r_chatbot/CMakeFiles/r_chatbot_generate_messages_py: /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/r_chatbot/srv/_WriteHistory.py
 r_chatbot/CMakeFiles/r_chatbot_generate_messages_py: /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/r_chatbot/srv/__init__.py
 
 /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/r_chatbot/srv/_Context.py: /opt/ros/indigo/share/genpy/cmake/../../../lib/genpy/gensrv_py.py
@@ -63,32 +66,56 @@ r_chatbot/CMakeFiles/r_chatbot_generate_messages_py: /media/sf_GitHub/Perception
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating Python code from SRV r_chatbot/EmotionRecognize"
 	cd /media/sf_GitHub/Perception_Robotics/catkin_ws/build/r_chatbot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/EmotionRecognize.srv -Istd_msgs:/media/sf_GitHub/Perception_Robotics/catkin_ws/src/std_msgs/msg -p r_chatbot -o /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/r_chatbot/srv
 
+/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/r_chatbot/srv/_LoadHistory.py: /opt/ros/indigo/share/genpy/cmake/../../../lib/genpy/gensrv_py.py
+/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/r_chatbot/srv/_LoadHistory.py: /media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/LoadHistory.srv
+	$(CMAKE_COMMAND) -E cmake_progress_report /media/sf_GitHub/Perception_Robotics/catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_3)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating Python code from SRV r_chatbot/LoadHistory"
+	cd /media/sf_GitHub/Perception_Robotics/catkin_ws/build/r_chatbot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/LoadHistory.srv -Istd_msgs:/media/sf_GitHub/Perception_Robotics/catkin_ws/src/std_msgs/msg -p r_chatbot -o /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/r_chatbot/srv
+
 /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/r_chatbot/srv/_FaceRecognize.py: /opt/ros/indigo/share/genpy/cmake/../../../lib/genpy/gensrv_py.py
 /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/r_chatbot/srv/_FaceRecognize.py: /media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/FaceRecognize.srv
-	$(CMAKE_COMMAND) -E cmake_progress_report /media/sf_GitHub/Perception_Robotics/catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_3)
+	$(CMAKE_COMMAND) -E cmake_progress_report /media/sf_GitHub/Perception_Robotics/catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_4)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating Python code from SRV r_chatbot/FaceRecognize"
 	cd /media/sf_GitHub/Perception_Robotics/catkin_ws/build/r_chatbot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/FaceRecognize.srv -Istd_msgs:/media/sf_GitHub/Perception_Robotics/catkin_ws/src/std_msgs/msg -p r_chatbot -o /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/r_chatbot/srv
 
+/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/r_chatbot/srv/_GetTopics.py: /opt/ros/indigo/share/genpy/cmake/../../../lib/genpy/gensrv_py.py
+/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/r_chatbot/srv/_GetTopics.py: /media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/GetTopics.srv
+	$(CMAKE_COMMAND) -E cmake_progress_report /media/sf_GitHub/Perception_Robotics/catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_5)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating Python code from SRV r_chatbot/GetTopics"
+	cd /media/sf_GitHub/Perception_Robotics/catkin_ws/build/r_chatbot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/GetTopics.srv -Istd_msgs:/media/sf_GitHub/Perception_Robotics/catkin_ws/src/std_msgs/msg -p r_chatbot -o /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/r_chatbot/srv
+
 /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/r_chatbot/srv/_FaceTrain.py: /opt/ros/indigo/share/genpy/cmake/../../../lib/genpy/gensrv_py.py
 /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/r_chatbot/srv/_FaceTrain.py: /media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/FaceTrain.srv
-	$(CMAKE_COMMAND) -E cmake_progress_report /media/sf_GitHub/Perception_Robotics/catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_4)
+	$(CMAKE_COMMAND) -E cmake_progress_report /media/sf_GitHub/Perception_Robotics/catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_6)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating Python code from SRV r_chatbot/FaceTrain"
 	cd /media/sf_GitHub/Perception_Robotics/catkin_ws/build/r_chatbot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/FaceTrain.srv -Istd_msgs:/media/sf_GitHub/Perception_Robotics/catkin_ws/src/std_msgs/msg -p r_chatbot -o /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/r_chatbot/srv
+
+/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/r_chatbot/srv/_WriteHistory.py: /opt/ros/indigo/share/genpy/cmake/../../../lib/genpy/gensrv_py.py
+/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/r_chatbot/srv/_WriteHistory.py: /media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/WriteHistory.srv
+	$(CMAKE_COMMAND) -E cmake_progress_report /media/sf_GitHub/Perception_Robotics/catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_7)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating Python code from SRV r_chatbot/WriteHistory"
+	cd /media/sf_GitHub/Perception_Robotics/catkin_ws/build/r_chatbot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/WriteHistory.srv -Istd_msgs:/media/sf_GitHub/Perception_Robotics/catkin_ws/src/std_msgs/msg -p r_chatbot -o /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/r_chatbot/srv
 
 /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/r_chatbot/srv/__init__.py: /opt/ros/indigo/share/genpy/cmake/../../../lib/genpy/genmsg_py.py
 /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/r_chatbot/srv/__init__.py: /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/r_chatbot/srv/_Context.py
 /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/r_chatbot/srv/__init__.py: /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/r_chatbot/srv/_EmotionRecognize.py
+/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/r_chatbot/srv/__init__.py: /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/r_chatbot/srv/_LoadHistory.py
 /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/r_chatbot/srv/__init__.py: /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/r_chatbot/srv/_FaceRecognize.py
+/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/r_chatbot/srv/__init__.py: /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/r_chatbot/srv/_GetTopics.py
 /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/r_chatbot/srv/__init__.py: /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/r_chatbot/srv/_FaceTrain.py
-	$(CMAKE_COMMAND) -E cmake_progress_report /media/sf_GitHub/Perception_Robotics/catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_5)
+/media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/r_chatbot/srv/__init__.py: /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/r_chatbot/srv/_WriteHistory.py
+	$(CMAKE_COMMAND) -E cmake_progress_report /media/sf_GitHub/Perception_Robotics/catkin_ws/build/CMakeFiles $(CMAKE_PROGRESS_8)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating Python srv __init__.py for r_chatbot"
 	cd /media/sf_GitHub/Perception_Robotics/catkin_ws/build/r_chatbot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/r_chatbot/srv --initpy
 
 r_chatbot_generate_messages_py: r_chatbot/CMakeFiles/r_chatbot_generate_messages_py
 r_chatbot_generate_messages_py: /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/r_chatbot/srv/_Context.py
 r_chatbot_generate_messages_py: /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/r_chatbot/srv/_EmotionRecognize.py
+r_chatbot_generate_messages_py: /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/r_chatbot/srv/_LoadHistory.py
 r_chatbot_generate_messages_py: /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/r_chatbot/srv/_FaceRecognize.py
+r_chatbot_generate_messages_py: /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/r_chatbot/srv/_GetTopics.py
 r_chatbot_generate_messages_py: /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/r_chatbot/srv/_FaceTrain.py
+r_chatbot_generate_messages_py: /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/r_chatbot/srv/_WriteHistory.py
 r_chatbot_generate_messages_py: /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/r_chatbot/srv/__init__.py
 r_chatbot_generate_messages_py: r_chatbot/CMakeFiles/r_chatbot_generate_messages_py.dir/build.make
 .PHONY : r_chatbot_generate_messages_py

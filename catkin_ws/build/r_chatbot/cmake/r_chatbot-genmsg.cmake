@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.cmake.em
 
-message(STATUS "r_chatbot: 0 messages, 4 services")
+message(STATUS "r_chatbot: 0 messages, 7 services")
 
 set(MSG_I_FLAGS "-Istd_msgs:/media/sf_GitHub/Perception_Robotics/catkin_ws/src/std_msgs/msg")
 
@@ -25,14 +25,29 @@ add_custom_target(_r_chatbot_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "r_chatbot" "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/EmotionRecognize.srv" ""
 )
 
+get_filename_component(_filename "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/LoadHistory.srv" NAME_WE)
+add_custom_target(_r_chatbot_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "r_chatbot" "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/LoadHistory.srv" ""
+)
+
 get_filename_component(_filename "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/FaceRecognize.srv" NAME_WE)
 add_custom_target(_r_chatbot_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "r_chatbot" "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/FaceRecognize.srv" ""
 )
 
+get_filename_component(_filename "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/GetTopics.srv" NAME_WE)
+add_custom_target(_r_chatbot_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "r_chatbot" "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/GetTopics.srv" ""
+)
+
 get_filename_component(_filename "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/FaceTrain.srv" NAME_WE)
 add_custom_target(_r_chatbot_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "r_chatbot" "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/FaceTrain.srv" ""
+)
+
+get_filename_component(_filename "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/WriteHistory.srv" NAME_WE)
+add_custom_target(_r_chatbot_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "r_chatbot" "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/WriteHistory.srv" ""
 )
 
 #
@@ -56,13 +71,31 @@ _generate_srv_cpp(r_chatbot
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/r_chatbot
 )
 _generate_srv_cpp(r_chatbot
+  "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/LoadHistory.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/r_chatbot
+)
+_generate_srv_cpp(r_chatbot
   "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/FaceRecognize.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/r_chatbot
 )
 _generate_srv_cpp(r_chatbot
+  "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/GetTopics.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/r_chatbot
+)
+_generate_srv_cpp(r_chatbot
   "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/FaceTrain.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/r_chatbot
+)
+_generate_srv_cpp(r_chatbot
+  "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/WriteHistory.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/r_chatbot
@@ -84,9 +117,15 @@ get_filename_component(_filename "/media/sf_GitHub/Perception_Robotics/catkin_ws
 add_dependencies(r_chatbot_generate_messages_cpp _r_chatbot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/EmotionRecognize.srv" NAME_WE)
 add_dependencies(r_chatbot_generate_messages_cpp _r_chatbot_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/LoadHistory.srv" NAME_WE)
+add_dependencies(r_chatbot_generate_messages_cpp _r_chatbot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/FaceRecognize.srv" NAME_WE)
 add_dependencies(r_chatbot_generate_messages_cpp _r_chatbot_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/GetTopics.srv" NAME_WE)
+add_dependencies(r_chatbot_generate_messages_cpp _r_chatbot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/FaceTrain.srv" NAME_WE)
+add_dependencies(r_chatbot_generate_messages_cpp _r_chatbot_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/WriteHistory.srv" NAME_WE)
 add_dependencies(r_chatbot_generate_messages_cpp _r_chatbot_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -113,13 +152,31 @@ _generate_srv_lisp(r_chatbot
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/r_chatbot
 )
 _generate_srv_lisp(r_chatbot
+  "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/LoadHistory.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/r_chatbot
+)
+_generate_srv_lisp(r_chatbot
   "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/FaceRecognize.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/r_chatbot
 )
 _generate_srv_lisp(r_chatbot
+  "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/GetTopics.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/r_chatbot
+)
+_generate_srv_lisp(r_chatbot
   "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/FaceTrain.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/r_chatbot
+)
+_generate_srv_lisp(r_chatbot
+  "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/WriteHistory.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/r_chatbot
@@ -141,9 +198,15 @@ get_filename_component(_filename "/media/sf_GitHub/Perception_Robotics/catkin_ws
 add_dependencies(r_chatbot_generate_messages_lisp _r_chatbot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/EmotionRecognize.srv" NAME_WE)
 add_dependencies(r_chatbot_generate_messages_lisp _r_chatbot_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/LoadHistory.srv" NAME_WE)
+add_dependencies(r_chatbot_generate_messages_lisp _r_chatbot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/FaceRecognize.srv" NAME_WE)
 add_dependencies(r_chatbot_generate_messages_lisp _r_chatbot_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/GetTopics.srv" NAME_WE)
+add_dependencies(r_chatbot_generate_messages_lisp _r_chatbot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/FaceTrain.srv" NAME_WE)
+add_dependencies(r_chatbot_generate_messages_lisp _r_chatbot_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/WriteHistory.srv" NAME_WE)
 add_dependencies(r_chatbot_generate_messages_lisp _r_chatbot_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -170,13 +233,31 @@ _generate_srv_py(r_chatbot
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/r_chatbot
 )
 _generate_srv_py(r_chatbot
+  "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/LoadHistory.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/r_chatbot
+)
+_generate_srv_py(r_chatbot
   "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/FaceRecognize.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/r_chatbot
 )
 _generate_srv_py(r_chatbot
+  "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/GetTopics.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/r_chatbot
+)
+_generate_srv_py(r_chatbot
   "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/FaceTrain.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/r_chatbot
+)
+_generate_srv_py(r_chatbot
+  "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/WriteHistory.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/r_chatbot
@@ -198,9 +279,15 @@ get_filename_component(_filename "/media/sf_GitHub/Perception_Robotics/catkin_ws
 add_dependencies(r_chatbot_generate_messages_py _r_chatbot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/EmotionRecognize.srv" NAME_WE)
 add_dependencies(r_chatbot_generate_messages_py _r_chatbot_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/LoadHistory.srv" NAME_WE)
+add_dependencies(r_chatbot_generate_messages_py _r_chatbot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/FaceRecognize.srv" NAME_WE)
 add_dependencies(r_chatbot_generate_messages_py _r_chatbot_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/GetTopics.srv" NAME_WE)
+add_dependencies(r_chatbot_generate_messages_py _r_chatbot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/FaceTrain.srv" NAME_WE)
+add_dependencies(r_chatbot_generate_messages_py _r_chatbot_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/media/sf_GitHub/Perception_Robotics/catkin_ws/src/r_chatbot/srv/WriteHistory.srv" NAME_WE)
 add_dependencies(r_chatbot_generate_messages_py _r_chatbot_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility

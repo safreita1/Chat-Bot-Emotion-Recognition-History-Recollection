@@ -3,11 +3,15 @@
 from gtts import gTTS
 import os
 import rospy
+from user_interface import UserInterface
 from r_chatbot.srv import *
+
 from speech_to_text import SpeechRecognition
 import pyglet
 # This line must be before the tensorflow initialization or the program crashes
+print "setting up window"
 window = pyglet.window.Window(fullscreen=True)
+print "done setting up window"
 
 input_sentence = ""
 current_emotion = ""
@@ -19,8 +23,8 @@ def face_recognize_client(user_interface, device_id):
     try:
         service = rospy.ServiceProxy('facereq', FaceRecognize)
         resp = service(device_id)
-        self.user_interface.stream_webcam("Testing for user recognition", None)
-        self.user_interface.render()
+        user_interface.stream_webcam("Testing for user recognition", None)
+        user_interface.render()
         return resp.id, resp.name
     except rospy.ServiceException, e:
         print "Service call failed: %s\n"%e
@@ -38,11 +42,11 @@ def face_retrain_client(user_interface, name, device_id):
         print "Service call failed: %s\n"%e
         return None
 
-def context_client(input):
+def context_client(input_sentence):
     rospy.wait_for_service('context')
     try:
         service = rospy.ServiceProxy('context', Context)
-        resp = service(input)
+        resp = service(input_sentence)
         return resp.response, resp.correlation
     except rospy.ServiceException, e:
         print "Service call failed: %s\n"%e
@@ -51,7 +55,7 @@ def context_client(input):
 def emotion_client(user_interface, device_id):
     rospy.wait_for_service('emotionreq')
     try:
-        service = rospy.ServiceProxy('emotionreq', EmotionRecognition )
+        service = rospy.ServiceProxy('emotionreq', EmotionRecognize )
         resp = service(device_id)
         user_interface.stream_webcam("Current User Emotion", resp.emotion)
         user_interface.render()
@@ -70,7 +74,7 @@ def get_topic_client(input_sentence):
         print "Service call failed: %s\n"%e
         return None
 
-def write_history_client(user_interface, username):
+def write_history_client(username):
     rospy.wait_for_service('write_history')
     try:
         service = rospy.ServiceProxy('write_history', WriteHistory )
@@ -80,7 +84,7 @@ def write_history_client(user_interface, username):
         print "Service call failed: %s\n"%e
         return None
 
-def load_history_client(user_interface, username):
+def load_history_client(username):
     rospy.wait_for_service('load_history')
     try:
         service = rospy.ServiceProxy('load_history', LoadHistory )
@@ -108,7 +112,7 @@ def history_recollection(user_interface):
         user_name = speech.recognize_speech()
         user_interface.update_sprites(chatbot_response, " ".join(("Emotion: ", meeting_emotion)), " ".join(("User: ", user_name)), "Primary Topics: ")
         user_interface.render()
-        ret = face_retrain_client(user_interface, temp_sentence, devid)
+        ret = face_retrain_client(user_interface, user_name, devid)
 
     else:
         chatbot_response = "It's good to see you again, " + user_name
@@ -120,19 +124,22 @@ def history_recollection(user_interface):
 
 #Enter a Mircosoft Speech token into the SpeechRecognition constructor
 speech = SpeechRecognition("1a413224eeff42539b348bff8c1925c9")
-
+print "speech done"
 
 user_interface = UserInterface(window)
+print "ui done"
 
 # The chatbot will start listening to the user after they say "computer"
 # The bot will then read your emotion via webcam
+
 while input_sentence != "computer":
     user_interface.update_sprites("Listening...", "Emotion: None", "User: Unknown", "Primary Topics: ")
     user_interface.render()
-    input_sentence = speech.recognize_speech()
+    print "waiting on input"
+    input_sentence = "computer"#speech.recognize_speech()
     print "You said: ", input_sentence
 
-    meeting_emotion = emotion_client()
+    meeting_emotion = emotion_client(user_interface, devid)
     assert(meeting_emotion != None)
 
     print "Emotion read: ", meeting_emotion

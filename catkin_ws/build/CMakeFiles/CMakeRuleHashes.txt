@@ -7,6 +7,9 @@ b281b13434f33f84b867334ecb673475 /media/sf_GitHub/Perception_Robotics/catkin_ws/
 037b0c631c0da4a155c6f581ae060fee /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot/EmotionRecognize.h
 f5c2723a4c1ab412e309c9f20c2a6762 /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot/FaceRecognize.h
 17fba98700f2d33d80ab6d9f04fccf49 /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot/FaceTrain.h
+e6c0f06e962dd286dd467f577bba9969 /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot/GetTopics.h
+694b4d75b788da4615bc8acbb87a1ffc /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot/LoadHistory.h
+24de20b6d5f8349813db23d911ef2a79 /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/r_chatbot/WriteHistory.h
 f34077e35a021e2fce570f2ecfce1ea0 /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/std_msgs/Bool.h
 5fe3f97a8079bfb43a6bea0916506ec5 /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/std_msgs/Byte.h
 2b117f6d8cdfc678780ea25ee0224e9f /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/include/std_msgs/ByteMultiArray.h
@@ -48,6 +51,9 @@ b9dca04c2db48e0b7d5b7a26c1e2de95 /media/sf_GitHub/Perception_Robotics/catkin_ws/
 60675ee529e67564a5705953581ebb3c /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/r_chatbot/srv/_EmotionRecognize.py
 e1a9c04f9e4695d687575f01b0041432 /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/r_chatbot/srv/_FaceRecognize.py
 71d2f77a85233f39a5b47b39764f812d /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/r_chatbot/srv/_FaceTrain.py
+f69a99ccf4660f04248a5e225cb53389 /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/r_chatbot/srv/_GetTopics.py
+e252ab22556b693297bede2f56fc1ad8 /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/r_chatbot/srv/_LoadHistory.py
+9e2e49e9a7bec4b45868feedaf57c48e /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/r_chatbot/srv/_WriteHistory.py
 9ae8af9c7aec3d1e15b6fb3540fecddb /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/r_chatbot/srv/__init__.py
 2a7accd59ea7c39efeef6df94316f9f9 /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/std_msgs/msg/_Bool.py
 75c05ce8dfed2e10aa6a0feddbcb8bef /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/lib/python2.7/dist-packages/std_msgs/msg/_Byte.py
@@ -90,6 +96,9 @@ dbd50d245dcc0d83275657d20e8b396e /media/sf_GitHub/Perception_Robotics/catkin_ws/
 33eff3d29994580df4bd59d6c87f43d5 /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/share/common-lisp/ros/r_chatbot/srv/EmotionRecognize.lisp
 9a15c868a9fde7c165a44a0a1b51b59a /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/share/common-lisp/ros/r_chatbot/srv/FaceRecognize.lisp
 887bf35e346b75232d32e24ed02bcc97 /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/share/common-lisp/ros/r_chatbot/srv/FaceTrain.lisp
+e573e0555833a01f0c795b752b44c8f7 /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/share/common-lisp/ros/r_chatbot/srv/GetTopics.lisp
+7dc056e671cb79871c4fc1d03f4a573f /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/share/common-lisp/ros/r_chatbot/srv/LoadHistory.lisp
+456dbd8ebd2155b1f146102fc12c9848 /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/share/common-lisp/ros/r_chatbot/srv/WriteHistory.lisp
 eead808adce3262880b63571f06d6f60 /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/share/common-lisp/ros/std_msgs/msg/Bool.lisp
 eb94fc6b3ad283c07c0c48644657f885 /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/share/common-lisp/ros/std_msgs/msg/Byte.lisp
 64683a8391dd8bcceb3ef9db30279428 /media/sf_GitHub/Perception_Robotics/catkin_ws/devel/share/common-lisp/ros/std_msgs/msg/ByteMultiArray.lisp
@@ -131,6 +140,9 @@ d5f7dd34f3d83f6317f2050676633396 r_chatbot/CMakeFiles/_r_chatbot_generate_messag
 2c822f2394dcc6a3a928106ceb7bf30a r_chatbot/CMakeFiles/_r_chatbot_generate_messages_check_deps_EmotionRecognize
 4aedc28109c0e06f1301e72941bcd0a6 r_chatbot/CMakeFiles/_r_chatbot_generate_messages_check_deps_FaceRecognize
 adb109b43cf6cb6de4422b8dbf56cb54 r_chatbot/CMakeFiles/_r_chatbot_generate_messages_check_deps_FaceTrain
+8895921bc54cd7b14eb2b15ab1534798 r_chatbot/CMakeFiles/_r_chatbot_generate_messages_check_deps_GetTopics
+b209b3607c5768c7aae31561e83508d7 r_chatbot/CMakeFiles/_r_chatbot_generate_messages_check_deps_LoadHistory
+28c7d336f1e970910960bc8a8f91aab1 r_chatbot/CMakeFiles/_r_chatbot_generate_messages_check_deps_WriteHistory
 ad3158aabab6f06accbc7e62734ea0bf r_chatbot/CMakeFiles/r_chatbot_gencpp
 ad3158aabab6f06accbc7e62734ea0bf r_chatbot/CMakeFiles/r_chatbot_generate_messages
 ad3158aabab6f06accbc7e62734ea0bf r_chatbot/CMakeFiles/r_chatbot_generate_messages_cpp

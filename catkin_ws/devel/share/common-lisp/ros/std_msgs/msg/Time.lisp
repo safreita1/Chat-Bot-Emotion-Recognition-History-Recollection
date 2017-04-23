@@ -67,10 +67,10 @@
   "cd7166c74c552c311fbcc2fe5a7bc289")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<Time>)))
   "Returns full string definition for message of type '<Time>"
-  (cl:format cl:nil "time data~%~%~%"))
+  (cl:format cl:nil "time data~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'Time)))
   "Returns full string definition for message of type 'Time"
-  (cl:format cl:nil "time data~%~%~%"))
+  (cl:format cl:nil "time data~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:serialization-length ((msg <Time>))
   (cl:+ 0
      8
